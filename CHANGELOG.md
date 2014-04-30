@@ -2,6 +2,11 @@ yum-mysql-community Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum-centos cookbook.
 
+v0.1.0 (2014-04-30)
+-------------------
+Initial release
+
+
 v0.3.6 (2014-04-09)
 -------------------
 - [COOK-4509] add RHEL7 support to yum-mysql-community cookbook
