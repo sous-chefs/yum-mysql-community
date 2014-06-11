@@ -2,6 +2,11 @@ yum-mysql-community Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum-centos cookbook.
 
+v0.1.2 (2014-06-11)
+-------------------
+#1 - Move files/mysql_pubkey.asc to files/default/mysql_pubkey.asc
+
+
 v0.1.0 (2014-04-30)
 -------------------
 Initial release
