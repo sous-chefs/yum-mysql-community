@@ -51,15 +51,14 @@ platforms:
     username: ec2-user
     ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
 
-# UTF-8 bug
-# - name: fedora-19
-#   driver_plugin: digitalocean
-#   driver_config:
-#     image_id: 3102879
-#     flavor_id: 63
-#     region_id: 4
-#     ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
-#     ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
+- name: centos-7.0
+  driver_plugin: digitalocean
+  driver_config:
+    image_id: 4856048
+    flavor_id: 63
+    region_id: 4
+    ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
+    ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
 
 - name: fedora-20
   driver_plugin: digitalocean
@@ -85,4 +84,9 @@ suites:
 - name: mysql56
   run_list:
   - recipe[yum-mysql-community::mysql56]
+  attributes: {}
+
+- name: mysql57
+  run_list:
+  - recipe[yum-mysql-community::mysql57]
   attributes: {}
