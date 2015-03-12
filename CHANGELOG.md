@@ -2,6 +2,10 @@ yum-mysql-community Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum-mysql-community cookbook.
 
+v0.1.13 (2015-03-12)
+--------------------
+- #3 corrected typo in public key attribute
+
 v0.1.12 (2015-01-20)
 -------------------
 - Minor style updates
