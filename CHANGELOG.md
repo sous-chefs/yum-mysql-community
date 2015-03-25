@@ -2,6 +2,10 @@ yum-mysql-community Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum-mysql-community cookbook.
 
+v0.1.16 (2015-03-25)
+--------------------
+- Adding support Amazon Linux 2015.03 to all channels
+
 v0.1.15 (2015-03-25)
 --------------------
 - Added support for amazon linux 2015.03
