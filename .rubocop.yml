@@ -1,3 +1,8 @@
+AllCops:
+  Exclude:
+    - vendor/**/*
+    - Guardfile
+
 AlignParameters:
   Enabled: false
 
@@ -12,9 +17,6 @@ MethodLength:
 
 LineLength:
   Enabled: false
-
-# HashSyntax:
-#  EnforcedStyle: hash_rockets
 
 Documentation:
   Enabled: false
