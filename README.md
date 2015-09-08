@@ -1,5 +1,7 @@
 yum-mysql-community Cookbook
 ============
+[![Build Status](https://travis-ci.org/chef-cookbooks/yum-mysql-community.svg?branch=master)](http://travis-ci.org/chef-cookbooks/yum-mysql-community)
+[![Cookbook Version](https://img.shields.io/cookbook/v/yum-mysql-community.svg)](https://supermarket.chef.io/cookbooks/yum-mysql-community)
 
 The yum-mysql-community cookbook takes over management of the default
 repositoryids shipped with epel-release. It allows attribute
@@ -121,7 +123,7 @@ License & Authors
 - Author:: Sean OMeara (<sean@chef.io>)
 
 ```text
-Copyright:: 2011-2015, Chef Software, Inc.
+Copyright:: 2011-2015 Chef Software, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
