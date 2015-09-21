@@ -11,6 +11,23 @@ platforms:
   - name: fedora-21
 
 suites:
-  - name: default
-    run_list:
-      - recipe[yum-mysql-community::default]
+- name: connectors
+  run_list:
+  - recipe[yum-mysql-community::connectors]
+  attributes: {}
+
+- name: mysql55
+  run_list:
+  - recipe[yum-mysql-community::mysql55]
+  includes: [ centos-6.4 ]
+  attributes: {}
+
+- name: mysql56
+  run_list:
+  - recipe[yum-mysql-community::mysql56]
+  attributes: {}
+
+- name: mysql57
+  run_list:
+  - recipe[yum-mysql-community::mysql57]
+  attributes: {}
