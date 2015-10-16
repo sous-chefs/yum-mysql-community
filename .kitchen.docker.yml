@@ -1,0 +1,32 @@
+settings:
+  parallel: true
+
+driver:
+  name: docker
+  # privileged is required otherwise the container doesn't boot right
+  privileged: true
+
+platforms:
+- name: centos-7.1
+  driver:
+    image: centos:7
+    platform: rhel
+    run_command: /usr/lib/systemd/systemd
+    provision_command:
+      - /bin/yum install -y initscripts net-tools wget
+
+suites:
+- name: connectors
+  run_list:
+  - recipe[yum-mysql-community::connectors]
+  attributes: {}
+
+- name: mysql56
+  run_list:
+  - recipe[yum-mysql-community::mysql56]
+  attributes: {}
+
+- name: mysql57
+  run_list:
+  - recipe[yum-mysql-community::mysql57]
+  attributes: {}
