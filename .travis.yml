@@ -14,9 +14,15 @@ services: docker
 
 env:
   matrix:
-  - INSTANCE=connectors-centos-71
-  - INSTANCE=mysql56-centos-71
-  - INSTANCE=mysql57-centos-71
+  - INSTANCE=connectors-centos-5
+  - INSTANCE=mysql56-centos-5
+  - INSTANCE=mysql57-centos-5
+  - INSTANCE=connectors-centos-6
+  - INSTANCE=mysql56-centos-6
+  - INSTANCE=mysql57-centos-6
+  - INSTANCE=connectors-centos-7
+  - INSTANCE=mysql56-centos-7
+  - INSTANCE=mysql57-centos-7
 
 # Don't `bundle install`
 install: echo "skip bundle install"
