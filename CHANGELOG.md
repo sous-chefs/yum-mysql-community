@@ -2,6 +2,10 @@ yum-mysql-community Cookbook CHANGELOG
 ======================
 This file is used to list changes made in each version of the yum-mysql-community cookbook.
 
+v0.1.19 (2015-10-28)
+--------------------
+- Fixing Chef 13 nil property deprecation warnings
+
 v0.1.18 (2015-09-21)
 --------------------
 - Added Travis CI config for lint and unit testing
