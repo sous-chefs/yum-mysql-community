@@ -1,6 +1,9 @@
 # yum-mysql-community Cookbook CHANGELOG
 This file is used to list changes made in each version of the yum-mysql-community cookbook.
 
+## v0.1.20 (2015-11-30)
+- Fixed attributes with a false value not being passed
+
 ## v0.1.19 (2015-10-28)
 - Fixing Chef 13 nil property deprecation warnings
 
