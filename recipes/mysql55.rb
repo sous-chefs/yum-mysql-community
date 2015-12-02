@@ -18,7 +18,7 @@
 
 yum_repository 'mysql55-community' do
   description node['yum']['mysql55-community']['description'] unless node['yum']['mysql55-community']['description'].nil?
-  baseurl node['yum']['mysql55-community']['baseurl'] unless  node['yum']['mysql55-community']['baseurl'].nil?
+  baseurl node['yum']['mysql55-community']['baseurl'] unless node['yum']['mysql55-community']['baseurl'].nil?
   mirrorlist node['yum']['mysql55-community']['mirrorlist'] unless node['yum']['mysql55-community']['mirrorlist'].nil?
   gpgcheck node['yum']['mysql55-community']['gpgcheck'] unless node['yum']['mysql55-community']['gpgcheck'].nil?
   gpgkey node['yum']['mysql55-community']['gpgkey'] unless node['yum']['mysql55-community']['gpgkey'].nil?
@@ -36,8 +36,8 @@ yum_repository 'mysql55-community' do
   mirror_expire node['yum']['mysql55-community']['mirror_expire'] unless node['yum']['mysql55-community']['mirror_expire'].nil?
   priority node['yum']['mysql55-community']['priority'] unless node['yum']['mysql55-community']['priority'].nil?
   proxy node['yum']['mysql55-community']['proxy'] unless node['yum']['mysql55-community']['proxy'].nil?
-  proxy_username node['yum']['mysql55-community']['proxy_username'] unless  node['yum']['mysql55-community']['proxy_username'].nil?
-  proxy_password node['yum']['mysql55-community']['proxy_password'] unless  node['yum']['mysql55-community']['proxy_password'].nil?
+  proxy_username node['yum']['mysql55-community']['proxy_username'] unless node['yum']['mysql55-community']['proxy_username'].nil?
+  proxy_password node['yum']['mysql55-community']['proxy_password'] unless node['yum']['mysql55-community']['proxy_password'].nil?
   repositoryid node['yum']['mysql55-community']['repositoryid'] unless node['yum']['mysql55-community']['repositoryid'].nil?
   sslcacert node['yum']['mysql55-community']['sslcacert'] unless node['yum']['mysql55-community']['sslcacert'].nil?
   sslclientcert node['yum']['mysql55-community']['sslclientcert'] unless node['yum']['mysql55-community']['sslclientcert'].nil?
