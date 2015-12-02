@@ -18,31 +18,31 @@
 
 yum_repository 'mysql55-community' do
   description node['yum']['mysql55-community']['description'] unless node['yum']['mysql55-community']['description'].nil?
-  baseurl node['yum']['mysql55-community']['baseurl'] if  node['yum']['mysql55-community']['baseurl'].nil?
+  baseurl node['yum']['mysql55-community']['baseurl'] unless  node['yum']['mysql55-community']['baseurl'].nil?
   mirrorlist node['yum']['mysql55-community']['mirrorlist'] unless node['yum']['mysql55-community']['mirrorlist'].nil?
-  gpgcheck node['yum']['mysql55-community']['gpgcheck'] if  node['yum']['mysql55-community']['gpgcheck'].nil?
-  gpgkey node['yum']['mysql55-community']['gpgkey'] if  node['yum']['mysql55-community']['gpgkey'].nil?
+  gpgcheck node['yum']['mysql55-community']['gpgcheck'] unless node['yum']['mysql55-community']['gpgcheck'].nil?
+  gpgkey node['yum']['mysql55-community']['gpgkey'] unless node['yum']['mysql55-community']['gpgkey'].nil?
   enabled node['yum']['mysql55-community']['enabled'] unless node['yum']['mysql55-community']['enabled'].nil?
   cost node['yum']['mysql55-community']['cost'] unless node['yum']['mysql55-community']['cost'].nil?
   exclude node['yum']['mysql55-community']['exclude'] unless node['yum']['mysql55-community']['exclude'].nil?
-  enablegroups node['yum']['mysql55-community']['enablegroups'] if  node['yum']['mysql55-community']['enablegroups'].nil?
+  enablegroups node['yum']['mysql55-community']['enablegroups'] unless node['yum']['mysql55-community']['enablegroups'].nil?
   failovermethod node['yum']['mysql55-community']['failovermethod'] unless node['yum']['mysql55-community']['failovermethod'].nil?
-  http_caching node['yum']['mysql55-community']['http_caching'] if  node['yum']['mysql55-community']['http_caching'].nil?
+  http_caching node['yum']['mysql55-community']['http_caching'] unless node['yum']['mysql55-community']['http_caching'].nil?
   include_config node['yum']['mysql55-community']['include_config'] unless node['yum']['mysql55-community']['include_config'].nil?
   includepkgs node['yum']['mysql55-community']['includepkgs'] unless node['yum']['mysql55-community']['includepkgs'].nil?
-  keepalive node['yum']['mysql55-community']['keepalive'] if  node['yum']['mysql55-community']['keepalive'].nil?
+  keepalive node['yum']['mysql55-community']['keepalive'] unless node['yum']['mysql55-community']['keepalive'].nil?
   max_retries node['yum']['mysql55-community']['max_retries'] unless node['yum']['mysql55-community']['max_retries'].nil?
   metadata_expire node['yum']['mysql55-community']['metadata_expire'] unless node['yum']['mysql55-community']['metadata_expire'].nil?
-  mirror_expire node['yum']['mysql55-community']['mirror_expire'] if  node['yum']['mysql55-community']['mirror_expire'].nil?
+  mirror_expire node['yum']['mysql55-community']['mirror_expire'] unless node['yum']['mysql55-community']['mirror_expire'].nil?
   priority node['yum']['mysql55-community']['priority'] unless node['yum']['mysql55-community']['priority'].nil?
   proxy node['yum']['mysql55-community']['proxy'] unless node['yum']['mysql55-community']['proxy'].nil?
-  proxy_username node['yum']['mysql55-community']['proxy_username'] if  node['yum']['mysql55-community']['proxy_username'].nil?
-  proxy_password node['yum']['mysql55-community']['proxy_password'] if  node['yum']['mysql55-community']['proxy_password'].nil?
-  repositoryid node['yum']['mysql55-community']['repositoryid'] if  node['yum']['mysql55-community']['repositoryid'].nil?
+  proxy_username node['yum']['mysql55-community']['proxy_username'] unless  node['yum']['mysql55-community']['proxy_username'].nil?
+  proxy_password node['yum']['mysql55-community']['proxy_password'] unless  node['yum']['mysql55-community']['proxy_password'].nil?
+  repositoryid node['yum']['mysql55-community']['repositoryid'] unless node['yum']['mysql55-community']['repositoryid'].nil?
   sslcacert node['yum']['mysql55-community']['sslcacert'] unless node['yum']['mysql55-community']['sslcacert'].nil?
   sslclientcert node['yum']['mysql55-community']['sslclientcert'] unless node['yum']['mysql55-community']['sslclientcert'].nil?
   sslclientkey node['yum']['mysql55-community']['sslclientkey'] unless node['yum']['mysql55-community']['sslclientkey'].nil?
   sslverify node['yum']['mysql55-community']['sslverify'] unless node['yum']['mysql55-community']['sslverify'].nil?
-  timeout node['yum']['mysql55-community']['timeout'] if  node['yum']['mysql55-community']['timeout'].nil?
+  timeout node['yum']['mysql55-community']['timeout'] unless node['yum']['mysql55-community']['timeout'].nil?
   action :create
 end

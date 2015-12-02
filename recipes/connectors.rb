@@ -18,26 +18,26 @@
 
 yum_repository 'mysql-connectors-community' do
   description node['yum']['mysql-connectors-community']['description'] unless node['yum']['mysql-connectors-community']['description'].nil?
-  baseurl node['yum']['mysql-connectors-community']['baseurl'] if  node['yum']['mysql-connectors-community']['baseurl'].nil?
+  baseurl node['yum']['mysql-connectors-community']['baseurl'] unless  node['yum']['mysql-connectors-community']['baseurl'].nil?
   mirrorlist node['yum']['mysql-connectors-community']['mirrorlist'] unless node['yum']['mysql-connectors-community']['mirrorlist'].nil?
-  gpgcheck node['yum']['mysql-connectors-community']['gpgcheck'] if  node['yum']['mysql-connectors-community']['gpgcheck'].nil?
-  gpgkey node['yum']['mysql-connectors-community']['gpgkey'] if  node['yum']['mysql-connectors-community']['gpgkey'].nil?
+  gpgcheck node['yum']['mysql-connectors-community']['gpgcheck'] unless node['yum']['mysql-connectors-community']['gpgcheck'].nil?
+  gpgkey node['yum']['mysql-connectors-community']['gpgkey'] unless node['yum']['mysql-connectors-community']['gpgkey'].nil?
   enabled node['yum']['mysql-connectors-community']['enabled'] unless node['yum']['mysql-connectors-community']['enabled'].nil?
   cost node['yum']['mysql-connectors-community']['cost'] unless node['yum']['mysql-connectors-community']['cost'].nil?
   exclude node['yum']['mysql-connectors-community']['exclude'] unless node['yum']['mysql-connectors-community']['exclude'].nil?
-  enablegroups node['yum']['mysql-connectors-community']['enablegroups'] if  node['yum']['mysql-connectors-community']['enablegroups'].nil?
+  enablegroups node['yum']['mysql-connectors-community']['enablegroups'] unless node['yum']['mysql-connectors-community']['enablegroups'].nil?
   failovermethod node['yum']['mysql-connectors-community']['failovermethod'] unless node['yum']['mysql-connectors-community']['failovermethod'].nil?
-  http_caching node['yum']['mysql-connectors-community']['http_caching'] if  node['yum']['mysql-connectors-community']['http_caching'].nil?
+  http_caching node['yum']['mysql-connectors-community']['http_caching'] unless node['yum']['mysql-connectors-community']['http_caching'].nil?
   include_config node['yum']['mysql-connectors-community']['include_config'] unless node['yum']['mysql-connectors-community']['include_config'].nil?
   includepkgs node['yum']['mysql-connectors-community']['includepkgs'] unless node['yum']['mysql-connectors-community']['includepkgs'].nil?
-  keepalive node['yum']['mysql-connectors-community']['keepalive'] if  node['yum']['mysql-connectors-community']['keepalive'].nil?
+  keepalive node['yum']['mysql-connectors-community']['keepalive'] unless node['yum']['mysql-connectors-community']['keepalive'].nil?
   max_retries node['yum']['mysql-connectors-community']['max_retries'] unless node['yum']['mysql-connectors-community']['max_retries'].nil?
   metadata_expire node['yum']['mysql-connectors-community']['metadata_expire'] unless node['yum']['mysql-connectors-community']['metadata_expire'].nil?
-  mirror_expire node['yum']['mysql-connectors-community']['mirror_expire'] if  node['yum']['mysql-connectors-community']['mirror_expire'].nil?
+  mirror_expire node['yum']['mysql-connectors-community']['mirror_expire'] unless node['yum']['mysql-connectors-community']['mirror_expire'].nil?
   priority node['yum']['mysql-connectors-community']['priority'] unless node['yum']['mysql-connectors-community']['priority'].nil?
   proxy node['yum']['mysql-connectors-community']['proxy'] unless node['yum']['mysql-connectors-community']['proxy'].nil?
-  proxy_username node['yum']['mysql-connectors-community']['proxy_username'] if  node['yum']['mysql-connectors-community']['proxy_username'].nil?
-  proxy_password node['yum']['mysql-connectors-community']['proxy_password'] if  node['yum']['mysql-connectors-community']['proxy_password'].nil?
+  proxy_username node['yum']['mysql-connectors-community']['proxy_username'] unless  node['yum']['mysql-connectors-community']['proxy_username'].nil?
+  proxy_password node['yum']['mysql-connectors-community']['proxy_password'] unless  node['yum']['mysql-connectors-community']['proxy_password'].nil?
   repositoryid node['yum']['mysql-connectors-community']['repositoryid'] unless node['yum']['mysql-connectors-community']['repositoryid'].nil?
   sslcacert node['yum']['mysql-connectors-community']['sslcacert'] unless node['yum']['mysql-connectors-community']['sslcacert'].nil?
   sslclientcert node['yum']['mysql-connectors-community']['sslclientcert'] unless node['yum']['mysql-connectors-community']['sslclientcert'].nil?
