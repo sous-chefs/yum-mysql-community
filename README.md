@@ -79,7 +79,7 @@ default['yum']['mysql57-community-dmr']['enabled'] = true
 ## Usage Example
 To disable the epel repository through a Role or Environment definition
 
-```
+```ruby
 default_attributes(
   :yum => {
     :mysql57-community-dmr => {
@@ -93,7 +93,7 @@ default_attributes(
 
 Uncommonly used repositoryids are not managed by default. This is speeds up integration testing pipelines by avoiding yum-cache builds that nobody cares about. To enable the epel-testing repository with a wrapper cookbook, place the following in a recipe:
 
-```
+```ruby
 node.default['yum']['mysql57-community-dmr']['enabled'] = true
 node.default['yum']['mysql57-community-dmr']['managed'] = true
 include_recipe 'mysql57-community-dmr'
