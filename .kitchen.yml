@@ -28,6 +28,10 @@ platforms:
   driver:
     image: centos:7
 
+- name: oracle-7
+  driver:
+    image: oraclelinux:7
+
 suites:
 - name: connectors
   run_list:

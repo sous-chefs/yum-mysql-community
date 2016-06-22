@@ -19,7 +19,7 @@ when 'rhel'
     when 2016
       default['yum']['mysql57-community']['baseurl'] = 'http://repo.mysql.com/yum/mysql-5.7-community/el/6/$basearch/'
     end
-  when 'redhat'
+  when 'redhat', 'oracle' # ~FC024
     case node['platform_version'].to_i
     when 5
       # Real Redhat identifies $releasever as 5Server and 6Server
