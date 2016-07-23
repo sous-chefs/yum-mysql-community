@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of the yum-mysql-community cookbook.
 
+## v0.3.0 (2016-07-22)
+
+- Support Oracle Linux
+- Correctly state the required yum cookbook version in the readme
+- Add chef_version metadata to metadata.rb
+
 ## v0.2.0 (2016-03-29)
 
 - Add support for the 2016 Amazon Linux releases
