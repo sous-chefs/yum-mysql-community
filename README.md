@@ -17,7 +17,7 @@ The yum-mysql-community cookbook takes over management of the default repository
 
 ### Cookbooks
 
-- yum version 3.0.0 or higher
+- yum version 3.2+
 - yum-epel
 
 ## Attributes
