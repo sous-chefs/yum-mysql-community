@@ -23,6 +23,10 @@ group :kitchen_vagrant do
   gem 'kitchen-vagrant', '~> 0.19'
 end
 
+group :kitchen_dokken do
+  gem 'kitchen-dokken'
+end
+
 group :kitchen_inspec do
   gem 'kitchen-inspec'
 end
