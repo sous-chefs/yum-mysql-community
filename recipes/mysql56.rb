@@ -1,5 +1,5 @@
 #
-# Author:: Sean OMeara (<sean@chef.io>)
+# Author:: Sean OMeara (<sean@sean.io>)
 # Recipe:: yum-mysql-community::mysql56-community
 #
 # Copyright 2014-2015, Chef Software, Inc.
