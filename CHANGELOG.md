@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the yum-mysql-community cookbook.
 
+## 1.0.0 (2016-09-06)
+- Testing updates
+- Remove support for Chef 11
+
 ## v0.3.0 (2016-07-22)
 
 - Support Oracle Linux
