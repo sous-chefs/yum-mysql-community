@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/chef-cookbooks/yum-mysql-community.svg?branch=master)](http://travis-ci.org/chef-cookbooks/yum-mysql-community) [![Cookbook Version](https://img.shields.io/cookbook/v/yum-mysql-community.svg)](https://supermarket.chef.io/cookbooks/yum-mysql-community)
 
-The yum-mysql-community cookbook takes over management of the default repository ids shipped with epel-release. It allows attribute manipulation of `mysql-connectors-community`, `mysql56-community`, and `mysql57-community-dmr`.
+The yum-mysql-community cookbook takes over management of the default repository ids shipped with mysql*-community-release. It allows attribute manipulation of `mysql-connectors-community`, `mysql56-community`, and `mysql57-community-dmr`.
 
 ## Requirements
 
@@ -85,7 +85,7 @@ default['yum']['mysql57-community-dmr']['enabled'] = true
 
 ## Usage Example
 
-To disable the epel repository through a Role or Environment definition
+To disable the mysql-community-dmr repository through a Role or Environment definition
 
 ```ruby
 default_attributes(
@@ -99,7 +99,7 @@ default_attributes(
  )
 ```
 
-Uncommonly used repositoryids are not managed by default. This is speeds up integration testing pipelines by avoiding yum-cache builds that nobody cares about. To enable the epel-testing repository with a wrapper cookbook, place the following in a recipe:
+Uncommonly used repositoryids are not managed by default. This is speeds up integration testing pipelines by avoiding yum-cache builds that nobody cares about. To enable the mysql-community-dmr repository with a wrapper cookbook, place the following in a recipe:
 
 ```ruby
 node.default['yum']['mysql57-community-dmr']['enabled'] = true
