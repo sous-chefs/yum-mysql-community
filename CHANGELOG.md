@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the yum-mysql-community cookbook.
 
+## 2.0.0 (2016-11-05)
+- Replace yum dependency with compat_resource
+- Replace 'epel' with 'mysql-community' in the readme
+
 ## 1.0.0 (2016-09-06)
 - Testing updates
 - Remove support for Chef 11
