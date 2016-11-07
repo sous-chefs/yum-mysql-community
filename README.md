@@ -61,7 +61,7 @@ default['yum']['mysql57-community-dmr']['enabled'] = true
 
 ```ruby
   yum_repository 'mysql55-community' do
-    mirrorlist 'http://repo.mysql.com/yum/mysql55-community/el/$releasever/$basearch/'
+    mirrorlist 'https://repo.mysql.com/yum/mysql-5.5-community/el/$releasever/$basearch/'
     description ''
     enabled true
     gpgcheck true
@@ -73,7 +73,7 @@ default['yum']['mysql57-community-dmr']['enabled'] = true
 
 ```ruby
   yum_repository 'mysql56-community' do
-    mirrorlist 'http://repo.mysql.com/yum/mysql56-community/el/$releasever/$basearch/'
+    mirrorlist 'https://repo.mysql.com/yum/mysql-5.6-community/el/$releasever/$basearch/'
     description ''
     enabled true
     gpgcheck true
