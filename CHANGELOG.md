@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of the yum-mysql-community cookbook.
 
+## 2.0.1 (2016-11-07)
+- yum_repository mirrorlist value updated in Readme
+
 ## 2.0.0 (2016-11-05)
 - Replace yum dependency with compat_resource
 - Replace 'epel' with 'mysql-community' in the readme
