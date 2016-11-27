@@ -4,6 +4,9 @@ driver:
 provisioner:
   name: chef_zero
 
+verifier:
+  name: inspec
+
 platforms:
 - name: centos-5.11
 - name: centos-6.8
@@ -14,7 +17,9 @@ suites:
   run_list:
   - recipe[yum-mysql-community::connectors]
   attributes: {}
-
+- name: mysql55
+  run_list:
+  - recipe[yum-mysql-community::mysql56]
 - name: mysql56
   run_list:
   - recipe[yum-mysql-community::mysql56]
