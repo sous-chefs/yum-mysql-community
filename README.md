@@ -18,7 +18,6 @@ The yum-mysql-community cookbook takes over management of the default repository
 ### Cookbooks
 
 - compat_resource
-- yum-epel
 
 ## Attributes
 
