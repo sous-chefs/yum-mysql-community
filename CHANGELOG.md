@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the yum-mysql-community cookbook.
 
+## 2.0.3 (2016-12-22)
+
+- Depend on the latest compat_resource cookbook
+- Cookstyle fixes
+
 ## 2.0.2 (2016-11-26)
 - Remove yum-epel from the readme
 - Switch to inspec for testing
