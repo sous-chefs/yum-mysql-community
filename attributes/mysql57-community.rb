@@ -9,16 +9,7 @@ case node['platform_family']
 when 'rhel'
   case node['platform']
   when 'amazon'
-    case node['platform_version'].to_i
-    when 2013
-      default['yum']['mysql57-community']['baseurl'] = 'http://repo.mysql.com/yum/mysql-5.7-community/el/6/$basearch/'
-    when 2014
-      default['yum']['mysql57-community']['baseurl'] = 'http://repo.mysql.com/yum/mysql-5.7-community/el/6/$basearch/'
-    when 2015
-      default['yum']['mysql57-community']['baseurl'] = 'http://repo.mysql.com/yum/mysql-5.7-community/el/6/$basearch/'
-    when 2016
-      default['yum']['mysql57-community']['baseurl'] = 'http://repo.mysql.com/yum/mysql-5.7-community/el/6/$basearch/'
-    end
+    default['yum']['mysql57-community']['baseurl'] = 'http://repo.mysql.com/yum/mysql-5.7-community/el/6/$basearch/'
   when 'redhat', 'oracle' # ~FC024
     case node['platform_version'].to_i
     when 5

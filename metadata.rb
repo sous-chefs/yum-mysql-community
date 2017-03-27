@@ -4,7 +4,7 @@ maintainer_email 'cookbooks@chef.io'
 license 'Apache-2.0'
 description 'Installs/Configures yum-mysql-community'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '2.0.3'
+version '2.1.0'
 
 depends 'compat_resource', '>= 12.16.3'
 

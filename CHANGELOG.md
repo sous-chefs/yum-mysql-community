@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the yum-mysql-community cookbook.
 
+## 2.1.0 (2017-03-26)
+
+- Fix URLs for amazon so that 2017 resolves to '6' rather than 'latest'
+
 ## 2.0.3 (2016-12-22)
 
 - Depend on the latest compat_resource cookbook
