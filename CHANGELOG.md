@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the yum-mysql-community cookbook.
 
+## 3.0.0 (2018-02-16)
+
+- Require Chef 12.14+ and remove compat_resource dep
+
 ## 2.1.0 (2017-03-26)
 
 - Fix URLs for amazon so that 2017 resolves to '6' rather than 'latest'
