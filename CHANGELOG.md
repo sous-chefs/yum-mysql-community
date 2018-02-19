@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the yum-mysql-community cookbook.
 
+## 3.0.1 (2018-02-19)
+
+- Fixed GPG key download URL
+
 ## 3.0.0 (2018-02-16)
 
 - Require Chef 12.14+ and remove compat_resource dep
