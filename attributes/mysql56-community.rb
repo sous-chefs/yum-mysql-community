@@ -24,12 +24,12 @@ when 'rhel'
 when 'fedora'
   default['yum']['mysql56-community']['baseurl'] = 'http://repo.mysql.com/yum/mysql-5.6-community/fc/$releasever/$basearch/'
 when 'amazon'
-  case node['platform_version'].to_i
-  when /201./
-    default['yum']['mysql56-community']['baseurl'] = 'http://repo.mysql.com/yum/mysql-5.6-community/el/6/$basearch/'
-  when 2
-    default['yum']['mysql56-community']['baseurl'] = 'http://repo.mysql.com/yum/mysql-5.6-community/el/7/$basearch/'
-  else
-    default['yum']['mysql56-community']['baseurl'] = 'http://repo.mysql.com/yum/mysql-5.6-community/el/6/$basearch/'
-  end
+  default['yum']['mysql56-community']['baseurl'] = case node['platform_version'].to_i
+                                                   when /201./
+                                                     'http://repo.mysql.com/yum/mysql-5.6-community/el/6/$basearch/'
+                                                   when 2
+                                                     'http://repo.mysql.com/yum/mysql-5.6-community/el/7/$basearch/'
+                                                   else
+                                                     'http://repo.mysql.com/yum/mysql-5.6-community/el/6/$basearch/'
+                                                   end
 end
