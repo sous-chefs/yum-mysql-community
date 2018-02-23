@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the yum-mysql-community cookbook.
 
+## 4.0.0 (2018-02-23)
+
+- Add support for Amazon Linux 2.0
+- Require Chef 13 now that we assume Amazon Linux has it's own platform family
+
 ## 3.0.1 (2018-02-19)
 
 - Fixed GPG key download URL
