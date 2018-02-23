@@ -24,10 +24,10 @@ when 'rhel'
 when 'fedora'
   default['yum']['mysql-connectors-community']['baseurl'] = 'http://repo.mysql.com/yum/mysql-connectors-community/fc/$releasever/$basearch/'
 when 'amazon'
-  case node['platform_version']
-  when /201.*/
+  case node['platform_version'].to_i
+  when /201./
     default['yum']['mysql-connectors-community']['baseurl'] = 'http://repo.mysql.com/yum/mysql-connectors-community/el/6/$basearch/'
-  when /2\..*/
+  when 2
     default['yum']['mysql-connectors-community']['baseurl'] = 'http://repo.mysql.com/yum/mysql-connectors-community/el/7/$basearch/'
   else
     default['yum']['mysql-connectors-community']['baseurl'] = 'http://repo.mysql.com/yum/mysql-connectors-community/el/6/$basearch/'
