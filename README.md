@@ -13,7 +13,7 @@ The yum-mysql-community cookbook takes over management of the default repository
 
 ### Chef
 
-- Chef 12.14+
+- Chef 13.0+
 
 ### Cookbooks
 
