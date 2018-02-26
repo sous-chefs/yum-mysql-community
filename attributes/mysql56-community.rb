@@ -1,5 +1,5 @@
 default['yum']['mysql56-community']['repositoryid'] = 'mysql56-community'
-default['yum']['mysql56-community']['gpgkey'] = 'https://raw.githubusercontent.com/chef-cookbooks/yum-mysql-community/master/files/mysql_pubkey.asc'
+default['yum']['mysql56-community']['gpgkey'] = 'http://repo.mysql.com/RPM-GPG-KEY-mysql'
 default['yum']['mysql56-community']['description'] = 'MySQL 5.6 Community Server'
 default['yum']['mysql56-community']['failovermethod'] = 'priority'
 default['yum']['mysql56-community']['gpgcheck'] = true
