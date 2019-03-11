@@ -55,7 +55,7 @@ default['yum']['mysql57-community-dmr']['enabled'] = true
 
 ## Recipes
 
-- mysql55 - Sets up the mysql56-community repository on supported
+- mysql55 - Sets up the mysql55-community repository on supported
 - platforms
 
 ```ruby
