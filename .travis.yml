@@ -7,9 +7,6 @@ addons:
 
 install: echo "skip bundle install"
 
-env:
-  - CHEF_LICENSE=accept
-
 branches:
   only:
     - master
@@ -36,12 +33,12 @@ before_script:
   - eval "$(chef shell-init bash)"
   - chef --version
 
-script: KITCHEN_LOCAL_YAML=kitchen.dokken.yml kitchen verify ${INSTANCE}
+script: KITCHEN_LOCAL_YAML=kitchen.dokken.yml CHEF_VERSION=${CHEF_VERSION} kitchen verify ${INSTANCE}
 
 matrix:
   include:
     - script:
       - chef exec delivery local all
       env:
-        - UNIT_AND_LINT=1
         - CHEF_LICENSE=accept
+        - UNIT_AND_LINT=1
