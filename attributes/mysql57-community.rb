@@ -7,8 +7,7 @@ default['yum']['mysql57-community']['enabled'] = true
 
 case node['platform_family']
 when 'rhel'
-  case node['platform']
-  when 'redhat', 'oracle' # ~FC024
+  if platform?('redhat', 'oracle')
     case node['platform_version'].to_i
     when 5
       # Real Redhat identifies $releasever as 5Server and 6Server
