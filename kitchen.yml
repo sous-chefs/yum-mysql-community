@@ -10,28 +10,35 @@ verifier:
   name: inspec
 
 platforms:
-  - name: amazonlinux
-    driver_config:
-      box: mvbcoding/awslinux
+#  - name: amazonlinux
+#    driver_config:
+#      box: mvbcoding/awslinux
   - name: amazonlinux-2
   - name: centos-6
   - name: centos-7
   - name: centos-8
 
 suites:
-- name: connectors
-  run_list:
-  - recipe[yum-mysql-community::connectors]
-  attributes: {}
-- name: mysql55
-  run_list:
-  - recipe[yum-mysql-community::mysql56]
-- name: mysql56
-  run_list:
-  - recipe[yum-mysql-community::mysql56]
-  attributes: {}
+  - name: resource
+    run_list:
+      - recipe[test::resource]
 
-- name: mysql57
-  run_list:
-  - recipe[yum-mysql-community::mysql57]
-  attributes: {}
+  - name: connectors
+    run_list:
+      - recipe[yum-mysql-community::connectors]
+    attributes: {}
+
+  - name: mysql55
+    run_list:
+      - recipe[yum-mysql-community::mysql56]
+    attributes: {}
+
+  - name: mysql56
+    run_list:
+      - recipe[yum-mysql-community::mysql56]
+    attributes: {}
+
+  - name: mysql57
+    run_list:
+      - recipe[yum-mysql-community::mysql57]
+    attributes: {}

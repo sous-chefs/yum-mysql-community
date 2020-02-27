@@ -55,8 +55,7 @@ default['yum']['mysql57-community-dmr']['enabled'] = true
 
 ## Recipes
 
-- mysql55 - Sets up the mysql55-community repository on supported
-- platforms
+- mysql55 - Sets up the mysql55-community repository on supported platforms
 
 ```ruby
   yum_repository 'mysql55-community' do
@@ -67,8 +66,7 @@ default['yum']['mysql57-community-dmr']['enabled'] = true
   end
 ```
 
-- mysql56 - Sets up the mysql56-community repository on supported
-- platforms
+- mysql56 - Sets up the mysql56-community repository on supported platforms
 
 ```ruby
   yum_repository 'mysql56-community' do
@@ -79,8 +77,23 @@ default['yum']['mysql57-community-dmr']['enabled'] = true
   end
 ```
 
-- connectors - Sets up the mysql-connectors-community repository on supported
-- platforms
+- connectors - Sets up the mysql-connectors-community repository on supported platforms
+
+## Resources
+
+- yum_mysql_community_repo - Creates /etc/yum.repos.d/mysql-community repo file with enabled repos on supported platforms
+
+```ruby
+  yum_mysql_community_repo 'default' do
+    version '8.0'
+    gpgcheck true
+    mysql_community_server true
+    mysql_connectors_community true
+    mysql_tools_community true
+    mysql_tools_preview false
+    mysql_cluster_community false
+  end
+```
 
 ## Usage Example
 
