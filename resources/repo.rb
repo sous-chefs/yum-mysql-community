@@ -119,5 +119,4 @@ action_class do
       raise 'Unable to determine OS platform_family.'
     end
   end
-
 end
