@@ -52,35 +52,6 @@ property :mysql_cluster_community, [true, false],
 
 action :create do
   description 'Create MySQL Community Repo file'
-  os = case node['platform']
-       when 'amazon', 'redhat', 'centos', 'oracle'
-         'el'
-       when 'fedora'
-         'fc'
-       else
-         raise 'Unable to determine OS platform.'
-       end
-  os_ver = case node['platform_family']
-           when 'rhel'
-             if platform?('redhat', 'oracle')
-               node['platform_version'].to_i
-             else
-               '$releasever'
-             end
-           when 'amazon'
-             case node['platform_version'].to_i
-             when /201./
-               '6'
-             when 2
-               '7'
-             when 3
-               '8'
-             else
-               '6'
-             end
-           else
-             raise 'Unable to determine OS platform_family.'
-           end
 
   template '/etc/yum.repos.d/mysql-community.repo' do
     cookbook 'yum-mysql-community'
@@ -113,4 +84,40 @@ action_class do
   def one_or_zero(bool)
     bool ? 1 : 0
   end
+
+  def os
+    case node['platform_family']
+    when 'amazon', 'rhel'
+      'el'
+    when 'fedora'
+      'fc'
+    else
+      raise 'Unable to determine OS platform_family.'
+    end
+  end
+
+  def os_ver
+    case node['platform_family']
+    when 'fedora', 'rhel'
+      if platform?('redhat', 'oracle')
+        node['platform_version'].to_i
+      else
+        '$releasever'
+      end
+    when 'amazon'
+      case node['platform_version'].to_i
+      when /201./
+        '6'
+      when 2
+        '7'
+      when 3
+        '8'
+      else
+        '7'
+      end
+    else
+      raise 'Unable to determine OS platform_family.'
+    end
+  end
+
 end

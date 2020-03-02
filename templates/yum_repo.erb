@@ -30,7 +30,7 @@ gpgkey=http://repo.mysql.com/RPM-GPG-KEY-mysql
 
 [mysql-cluster-<%= @temp[:version] -%>-community]
 name=MySQL Cluster 8.0 Community
-baseurl=http://repo.mysql.com/yum/mysql-cluster-<%= @temp[:os_version] -%>-community/<%= @temp[:os] -%>/<%= @temp[:os_ver] -%>/$basearch/
+baseurl=http://repo.mysql.com/yum/mysql-cluster-<%= @temp[:version] -%>-community/<%= @temp[:os] -%>/<%= @temp[:os_ver] -%>/$basearch/
 enabled=<%= @temp[:mysql_cluster_community] %>
 gpgcheck=<%= @temp[:gpgcheck] %>
 gpgkey=http://repo.mysql.com/RPM-GPG-KEY-mysql
