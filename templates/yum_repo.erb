@@ -1,0 +1,36 @@
+# Chef Managed repo file. Changes may be overwritten on next chef-client run.
+
+[mysql<%= @temp[:version] -%>-community]
+name=MySQL <%= @temp[:version] -%> Community Server
+baseurl=http://repo.mysql.com/yum/mysql-<%= @temp[:version] -%>-community/<%= @temp[:os] -%>/<%= @temp[:os_ver] -%>/$basearch/
+enabled=<%= @temp[:mysql_community_server] %>
+gpgcheck=<%= @temp[:gpgcheck] %>
+gpgkey=http://repo.mysql.com/RPM-GPG-KEY-mysql
+
+[mysql-connectors-community]
+name=MySQL Connectors Community
+baseurl=http://repo.mysql.com/yum/mysql-connectors-community/<%= @temp[:os] -%>/<%= @temp[:os_ver] -%>/$basearch/
+enabled=<%= @temp[:mysql_connectors_community] %>
+gpgcheck=<%= @temp[:gpgcheck] %>
+gpgkey=http://repo.mysql.com/RPM-GPG-KEY-mysql
+
+[mysql-tools-community]
+name=MySQL Tools Community
+baseurl=http://repo.mysql.com/yum/mysql-tools-community/<%= @temp[:os] -%>/<%= @temp[:os_ver] -%>/$basearch/
+enabled=<%= @temp[:mysql_tools_community] %>
+gpgcheck=<%= @temp[:gpgcheck] %>
+gpgkey=http://repo.mysql.com/RPM-GPG-KEY-mysql
+
+[mysql-tools-preview]
+name=MySQL Tools Preview
+baseurl=http://repo.mysql.com/yum/mysql-tools-preview/<%= @temp[:os] -%>/<%= @temp[:os_ver] -%>/$basearch/
+enabled=<%= @temp[:mysql_tools_preview] %>
+gpgcheck=<%= @temp[:gpgcheck] %>
+gpgkey=http://repo.mysql.com/RPM-GPG-KEY-mysql
+
+[mysql-cluster-<%= @temp[:version] -%>-community]
+name=MySQL Cluster 8.0 Community
+baseurl=http://repo.mysql.com/yum/mysql-cluster-<%= @temp[:version] -%>-community/<%= @temp[:os] -%>/<%= @temp[:os_ver] -%>/$basearch/
+enabled=<%= @temp[:mysql_cluster_community] %>
+gpgcheck=<%= @temp[:gpgcheck] %>
+gpgkey=http://repo.mysql.com/RPM-GPG-KEY-mysql
