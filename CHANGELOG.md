@@ -2,6 +2,17 @@
 
 This file is used to list changes made in each version of the yum-mysql-community cookbook.
 
+## 4.1.0 (2020-03-02)
+
+- fix: error of gpgkey reference in older version. - [@bigplants](https://github.com/bigplants)
+- Typo fix in README.md file - [@olegburca](https://github.com/olegburca)
+- Resolve Cookstyle 5.8 warnings - [@tas50](https://github.com/tas50)
+- Simplify platform check logic - [@tas50](https://github.com/tas50)
+- Remove unnecessary foodcritic comments - [@tas50](https://github.com/tas50)
+- Cookstyle fixes - [@tas50](https://github.com/tas50)
+- Add testing with Github Actions - [@tas50](https://github.com/tas50)
+- Add a new yum_mysql_community_repo resource - [@Stromweld](https://github.com/Stromweld)
+
 ## 4.0.1 (2018-02-26)
 
 - Switched to MySQL managed GPG key to avoid failures accessing the previous GitHub hosted key
