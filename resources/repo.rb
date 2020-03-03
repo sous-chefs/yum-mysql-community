@@ -20,7 +20,7 @@
 
 resource_name 'yum_mysql_community_repo'
 
-description 'Configure yum repo for MySQL Community edition'
+description 'Configure yum repo for MySQL Community edition' if description
 
 property :version, String,
          default: '8.0',
