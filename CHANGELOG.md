@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the yum-mysql-community cookbook.
 
+## 4.1.1 (2020-04-10)
+
+- Allow the resource to run on versions of chef-client that don't have the "description" metadata - [@pierresouchay](https://github.com/pierresouchay)
+
 ## 4.1.0 (2020-03-02)
 
 - fix: error of gpgkey reference in older version. - [@bigplants](https://github.com/bigplants)
