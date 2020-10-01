@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Yamllint fixes
 - MDL fixes
+- Add provides to resource
 
 ### Added
 

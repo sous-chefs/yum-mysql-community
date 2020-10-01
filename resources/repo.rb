@@ -18,7 +18,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-resource_name 'yum_mysql_community_repo'
+resource_name :yum_mysql_community_repo
+provides :yum_mysql_community_repo
 
 description 'Configure yum repo for MySQL Community edition' if respond_to?(:description)
 
