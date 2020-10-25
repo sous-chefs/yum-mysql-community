@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Yamllint fixes
+- MDL fixes
 
 ## 4.1.1 (2020-04-10)
 
@@ -59,18 +60,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Cookstyle fixes
 
 ## 2.0.2 (2016-11-26)
+
 - Remove yum-epel from the readme
 - Switch to inspec for testing
 - Fix mysql55 in travis
 
 ## 2.0.1 (2016-11-07)
+
 - yum_repository mirrorlist value updated in Readme
 
 ## 2.0.0 (2016-11-05)
+
 - Replace yum dependency with compat_resource
 - Replace 'epel' with 'mysql-community' in the readme
 
 ## 1.0.0 (2016-09-06)
+
 - Testing updates
 - Remove support for Chef 11
 
