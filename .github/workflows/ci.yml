@@ -49,6 +49,13 @@ jobs:
           - 'mysql55'
           - 'mysql56'
           - 'mysql57'
+        exclude:
+          - os: centos-8
+            suite: mysql55
+          - os: centos-8
+            suite: mysql56
+          - os: centos-8
+            suite: mysql57
       fail-fast: false
 
     steps:
