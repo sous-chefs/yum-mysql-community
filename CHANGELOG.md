@@ -21,6 +21,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Yamllint fixes
 - MDL fixes
 
+### Removed
+
+- Remove Amazon Linux 1 testing
+
 ## 4.1.1 (2020-04-10)
 
 - Allow the resource to run on versions of chef-client that don't have the "description" metadata - [@pierresouchay](https://github.com/pierresouchay)
