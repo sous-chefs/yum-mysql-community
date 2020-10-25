@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update Changelog to Sous Chefs
 - Update to use Sous Chefs GH workflow
 
+### Fixed
+
+- Yamllint fixes
+
 ## 4.1.1 (2020-04-10)
 
 - Allow the resource to run on versions of chef-client that don't have the "description" metadata - [@pierresouchay](https://github.com/pierresouchay)
