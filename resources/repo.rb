@@ -18,7 +18,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-resource_name 'yum_mysql_community_repo'
+resource_name :yum_mysql_community_repo
+provides :yum_mysql_community_repo
 
 description 'Configure yum repo for MySQL Community edition' if respond_to?(:description)
 
@@ -52,6 +53,11 @@ property :mysql_cluster_community, [true, false],
 
 action :create do
   description 'Create MySQL Community Repo file'
+
+  execute 'dnf -y module disable mysql' do
+    only_if { node['platform_version'].to_i >= 8 }
+    not_if 'dnf module list mysql | grep -q "^mysql.*\[x\]"'
+  end
 
   template '/etc/yum.repos.d/mysql-community.repo' do
     cookbook 'yum-mysql-community'

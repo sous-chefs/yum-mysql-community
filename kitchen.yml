@@ -3,20 +3,18 @@ driver:
 
 provisioner:
   name: chef_zero
+  enforce_idempotency: true
+  multiple_converge: 2
   deprecations_as_errors: true
-  chef_license: accept-no-persist
 
 verifier:
   name: inspec
 
 platforms:
-#  - name: amazonlinux
-#    driver_config:
-#      box: mvbcoding/awslinux
   - name: amazonlinux-2
-  - name: centos-6
   - name: centos-7
   - name: centos-8
+  - name: fedora-latest
 
 suites:
   - name: resource
@@ -25,20 +23,25 @@ suites:
 
   - name: connectors
     run_list:
-      - recipe[yum-mysql-community::connectors]
-    attributes: {}
+      - recipe[test::connectors]
 
   - name: mysql55
     run_list:
-      - recipe[yum-mysql-community::mysql56]
-    attributes: {}
+      - recipe[yum-mysql-community::mysql55]
+      - recipe[test::server]
+    excludes:
+      - centos-8
 
   - name: mysql56
     run_list:
       - recipe[yum-mysql-community::mysql56]
-    attributes: {}
+      - recipe[test::server]
+    excludes:
+      - centos-8
 
   - name: mysql57
     run_list:
       - recipe[yum-mysql-community::mysql57]
-    attributes: {}
+      - recipe[test::server]
+    excludes:
+      - centos-8

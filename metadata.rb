@@ -1,14 +1,16 @@
-name 'yum-mysql-community'
-maintainer 'Chef Software, Inc.'
-maintainer_email 'cookbooks@chef.io'
-license 'Apache-2.0'
-description 'Installs/Configures yum-mysql-community'
-version '4.1.1'
+name              'yum-mysql-community'
+maintainer        'Sous Chefs'
+maintainer_email  'help@sous-chefs.org'
+license           'Apache-2.0'
+description       'Installs/Configures yum-mysql-community'
+version           '4.1.1'
+source_url        'https://github.com/sous-chefs/yum-mysql-community'
+issues_url        'https://github.com/sous-chefs/yum-mysql-community/issues'
+chef_version      '>= 13.0'
 
-%w(amazon centos fedora oracle redhat scientific).each do |os|
-  supports os
-end
-
-source_url 'https://github.com/chef-cookbooks/yum-mysql-community'
-issues_url 'https://github.com/chef-cookbooks/yum-mysql-community/issues'
-chef_version '>= 13.0'
+supports 'amazon'
+supports 'centos'
+supports 'fedora'
+supports 'oracle'
+supports 'redhat'
+supports 'scientific'
