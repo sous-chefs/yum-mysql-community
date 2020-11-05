@@ -5,6 +5,10 @@ This file is used to list changes made in each version of the yum-mysql-communit
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 4.2.1 (2020-11-05)
+
+- Insure dnf module is only disabled where required
+
 ## 4.2.0 (2020-10-28)
 
 ### Changed
