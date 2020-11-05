@@ -55,7 +55,7 @@ action :create do
   description 'Create MySQL Community Repo file'
 
   execute 'dnf -y module disable mysql' do
-    only_if { node['platform_version'].to_i >= 8 }
+    only_if { node['platform_version'].to_i >= 8 && platform_family?('rhel') }
     not_if 'dnf module list mysql | grep -q "^mysql.*\[x\]"'
   end
 
