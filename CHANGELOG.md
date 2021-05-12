@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-- resolved cookstyle error: resources/repo.rb:1:1 refactor: `Chef/Deprecations/ResourceWithoutUnifiedTrue`
+- Chef 17 updates: enable `unified_mode` on all resources
+- Bump required Chef Infra Client to >= 15.3
 
 ## 4.2.1 (2020-11-05)
 
