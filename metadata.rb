@@ -6,7 +6,7 @@ description       'Installs/Configures yum-mysql-community'
 version           '4.2.1'
 source_url        'https://github.com/sous-chefs/yum-mysql-community'
 issues_url        'https://github.com/sous-chefs/yum-mysql-community/issues'
-chef_version      '>= 13.0'
+chef_version      '>= 15.3'
 
 supports 'amazon'
 supports 'centos'

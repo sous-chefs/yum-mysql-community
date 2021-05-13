@@ -20,6 +20,7 @@
 
 resource_name :yum_mysql_community_repo
 provides :yum_mysql_community_repo
+unified_mode true
 
 description 'Configure yum repo for MySQL Community edition' if respond_to?(:description)
 
