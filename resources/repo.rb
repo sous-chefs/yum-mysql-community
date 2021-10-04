@@ -55,9 +55,9 @@ property :mysql_cluster_community, [true, false],
 action :create do
   description 'Create MySQL Community Repo file'
 
-  execute 'dnf -y module disable mysql' do
-    only_if { node['platform_version'].to_i >= 8 && platform_family?('rhel') }
-    not_if 'dnf module list mysql | grep -q "^mysql.*\[x\]"'
+  dnf_module 'mysql' do
+    action :disable
+    only_if { node['platform_version'].to_i >= 8 }
   end
 
   template '/etc/yum.repos.d/mysql-community.repo' do
