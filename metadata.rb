@@ -8,6 +8,8 @@ source_url        'https://github.com/sous-chefs/yum-mysql-community'
 issues_url        'https://github.com/sous-chefs/yum-mysql-community/issues'
 chef_version      '>= 15.3'
 
+depends 'yum', '>= 7.2.0'
+
 supports 'amazon'
 supports 'centos'
 supports 'fedora'

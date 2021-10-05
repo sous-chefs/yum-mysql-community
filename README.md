@@ -25,7 +25,7 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 ### Cookbooks
 
-- none
+- `yum` 7.2.0+ (for `dnf_module` resource)
 
 ## Attributes
 
