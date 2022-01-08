@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+- Switch to using yum_repository resource instead of template
+
 ## 5.1.0 - *2021-10-05*
 
 - Use `dnf_module` resource from `yum` cookbook instead of manually shelling out
