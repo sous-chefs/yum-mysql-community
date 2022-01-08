@@ -60,30 +60,60 @@ action :create do
     only_if { node['platform_version'].to_i >= 8 }
   end
 
-  template '/etc/yum.repos.d/mysql-community.repo' do
-    cookbook 'yum-mysql-community'
-    source 'yum_repo.erb'
-    variables(
-      temp: {
-        version: new_resource.version,
-        gpgcheck: one_or_zero(new_resource.gpgcheck),
-        os: os,
-        os_ver: os_ver,
-        mysql_community_server: one_or_zero(new_resource.mysql_community_server),
-        mysql_connectors_community: one_or_zero(new_resource.mysql_connectors_community),
-        mysql_tools_community: one_or_zero(new_resource.mysql_tools_community),
-        mysql_tools_preview: one_or_zero(new_resource.mysql_tools_preview),
-        mysql_cluster_community: one_or_zero(new_resource.mysql_cluster_community),
-      }
-    )
+  yum_repository 'mysql-community' do
+    description "MySQL #{new_resource.version} Community Server"
+    baseurl "https://repo.mysql.com/yum/mysql-#{new_resource.version}-community/#{os}/#{os_ver}/$basearch/"
+    gpgcheck new_resource.gpgcheck
+    enabled new_resource.mysql_community_server
+    gpgkey 'http://repo.mysql.com/RPM-GPG-KEY-mysql'
+  end
+
+  yum_repository 'mysql-connectors-community' do
+    description 'MySQL Connectors Community'
+    baseurl "https://repo.mysql.com/yum/mysql-connectors-community/#{os}/#{os_ver}/$basearch/"
+    gpgcheck new_resource.gpgcheck
+    enabled new_resource.mysql_connectors_community
+    gpgkey 'http://repo.mysql.com/RPM-GPG-KEY-mysql'
+  end
+
+  yum_repository 'mysql-tools-community' do
+    description 'MySQL Tools Community'
+    baseurl "https://repo.mysql.com/yum/mysql-tools-community/#{os}/#{os_ver}/$basearch/"
+    gpgcheck new_resource.gpgcheck
+    enabled new_resource.mysql_tools_community
+    gpgkey 'http://repo.mysql.com/RPM-GPG-KEY-mysql'
+  end
+
+  yum_repository 'mysql-tools-preview' do
+    description 'MySQL Tools Preview'
+    baseurl "https://repo.mysql.com/yum/mysql-tools-preview/#{os}/#{os_ver}/$basearch/"
+    gpgcheck new_resource.gpgcheck
+    enabled new_resource.mysql_tools_preview
+    gpgkey 'http://repo.mysql.com/RPM-GPG-KEY-mysql'
+  end
+
+  yum_repository 'mysql-cluster-community' do
+    description "MySQL Cluster #{new_resource.version} Community"
+    baseurl "https://repo.mysql.com/yum/mysql-cluster-#{new_resource.version}-community/#{os}/#{os_ver}/$basearch/"
+    gpgcheck new_resource.gpgcheck
+    enabled new_resource.mysql_cluster_community
+    gpgkey 'http://repo.mysql.com/RPM-GPG-KEY-mysql'
   end
 end
 
 action :delete do
   description 'Remove MySQL Community Repo file'
 
-  template '/etc/yum.repos.d/mysql-community.repo' do
-    action :delete
+  %w(
+    mysql-community
+    mysql-connectors-community
+    mysql-tools-community
+    mysql-tools-preview
+    mysql-cluster-community
+  ).each do |r|
+    yum_repository r do
+      action :remove
+    end
   end
 end
 
