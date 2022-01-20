@@ -7,10 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-- Update gpgkey urls in attribute:
-   - mysql57
-   - mysql-connectors
-- Update gpgkey url in repo resource
+- Update gpgkey urls in attribute files: mysql57, mysql-connectors
+- Update gpgkey urls in repo resource
 
 ## 5.2.0 - *2022-01-08*
 
