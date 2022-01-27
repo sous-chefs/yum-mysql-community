@@ -40,9 +40,11 @@ jobs:
     strategy:
       matrix:
         os:
+          - 'almalinux-8'
           - 'amazonlinux-2'
           - 'centos-7'
-          - 'centos-8'
+          - 'centos-stream-8'
+          - 'rockylinux-8'
         suite:
           - 'resource'
           - 'connectors'
@@ -50,11 +52,23 @@ jobs:
           - 'mysql56'
           - 'mysql57'
         exclude:
-          - os: centos-8
+          - os: almalinux-8
             suite: mysql55
-          - os: centos-8
+          - os: almalinux-8
             suite: mysql56
-          - os: centos-8
+          - os: almalinux-8
+            suite: mysql57
+          - os: centos-stream-8
+            suite: mysql55
+          - os: centos-stream-8
+            suite: mysql56
+          - os: centos-stream-8
+            suite: mysql57
+          - os: rockylinux-8
+            suite: mysql55
+          - os: rockylinux-8
+            suite: mysql56
+          - os: rockylinux-8
             suite: mysql57
       fail-fast: false
 
