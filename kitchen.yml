@@ -14,10 +14,12 @@ verifier:
   name: inspec
 
 platforms:
+  - name: almalinux-8
   - name: amazonlinux-2
   - name: centos-7
-  - name: centos-8
+  - name: centos-stream-8
   - name: fedora-latest
+  - name: rockylinux-8
 
 suites:
   - name: resource
@@ -33,18 +35,24 @@ suites:
       - recipe[yum-mysql-community::mysql55]
       - recipe[test::server]
     excludes:
-      - centos-8
+      - almalinux-8
+      - centos-stream-8
+      - rockylinux-8
 
   - name: mysql56
     run_list:
       - recipe[yum-mysql-community::mysql56]
       - recipe[test::server]
     excludes:
-      - centos-8
+      - almalinux-8
+      - centos-stream-8
+      - rockylinux-8
 
   - name: mysql57
     run_list:
       - recipe[yum-mysql-community::mysql57]
       - recipe[test::server]
     excludes:
-      - centos-8
+      - almalinux-8
+      - centos-stream-8
+      - rockylinux-8
