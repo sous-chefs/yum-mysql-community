@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+- Update workflows to 2.0.1
+- Remove mdl and replace with markdownlint-cli2
+
 ## 5.3.2 - *2022-12-25*
 
 - CI Fixes
