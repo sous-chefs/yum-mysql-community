@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+- Remove CircleCI
+
 ## 5.3.3 - *2023-03-01*
 
 - Update workflows to 2.0.1
