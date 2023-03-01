@@ -131,7 +131,7 @@ include_recipe 'mysql57-community-dmr'
 
 Point the mysql56-community repositories at an internally hosted server.
 
-```
+```ruby
 node.default['yum']['mysql56-community']['enabled'] = true
 node.default['yum']['mysql56-community']['mirrorlist'] = nil
 node.default['yum']['mysql56-community']['baseurl'] = 'https://internal.example.com/mysql/mysql56-community/'
