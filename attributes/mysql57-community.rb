@@ -1,5 +1,5 @@
 default['yum']['mysql57-community']['repositoryid'] = 'mysql57-community'
-default['yum']['mysql57-community']['gpgkey'] = 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2023'
+default['yum']['mysql57-community']['gpgkey'] = 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2022'
 default['yum']['mysql57-community']['description'] = 'MySQL 5.7 Community Server'
 default['yum']['mysql57-community']['failovermethod'] = 'priority'
 default['yum']['mysql57-community']['gpgcheck'] = true
