@@ -32,6 +32,10 @@ property :gpgcheck, [true, false],
          default: true,
          description: 'Enable or disable GPG checks'
 
+property :gpgkey, [String, Array],
+         default: 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2023',
+         description: 'GPG key(s)'
+
 property :mysql_community_server, [true, false],
          default: true,
          description: 'Enable or disable mysql community server repo'
@@ -65,7 +69,7 @@ action :create do
     baseurl "https://repo.mysql.com/yum/mysql-#{new_resource.version}-community/#{os}/#{os_ver}/$basearch/"
     gpgcheck new_resource.gpgcheck
     enabled new_resource.mysql_community_server
-    gpgkey 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2022'
+    gpgkey new_resource.gpgkey
   end
 
   yum_repository 'mysql-connectors-community' do
@@ -73,7 +77,7 @@ action :create do
     baseurl "https://repo.mysql.com/yum/mysql-connectors-community/#{os}/#{os_ver}/$basearch/"
     gpgcheck new_resource.gpgcheck
     enabled new_resource.mysql_connectors_community
-    gpgkey 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2022'
+    gpgkey new_resource.gpgkey
   end
 
   yum_repository 'mysql-tools-community' do
@@ -81,7 +85,7 @@ action :create do
     baseurl "https://repo.mysql.com/yum/mysql-tools-community/#{os}/#{os_ver}/$basearch/"
     gpgcheck new_resource.gpgcheck
     enabled new_resource.mysql_tools_community
-    gpgkey 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2022'
+    gpgkey new_resource.gpgkey
   end
 
   yum_repository 'mysql-tools-preview' do
@@ -89,7 +93,7 @@ action :create do
     baseurl "https://repo.mysql.com/yum/mysql-tools-preview/#{os}/#{os_ver}/$basearch/"
     gpgcheck new_resource.gpgcheck
     enabled new_resource.mysql_tools_preview
-    gpgkey 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2022'
+    gpgkey new_resource.gpgkey
   end
 
   yum_repository 'mysql-cluster-community' do
@@ -97,7 +101,7 @@ action :create do
     baseurl "https://repo.mysql.com/yum/mysql-cluster-#{new_resource.version}-community/#{os}/#{os_ver}/$basearch/"
     gpgcheck new_resource.gpgcheck
     enabled new_resource.mysql_cluster_community
-    gpgkey 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2022'
+    gpgkey new_resource.gpgkey
   end
 end
 

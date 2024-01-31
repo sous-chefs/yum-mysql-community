@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+- Add gpgkey property to repo resource
+- Default to 2023 GPG key
+
 ## 5.3.4 - *2023-03-01*
 
 - Remove CircleCI
