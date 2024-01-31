@@ -1,5 +1,5 @@
 default['yum']['mysql-connectors-community']['repositoryid'] = 'mysql-connectors-community'
-default['yum']['mysql-connectors-community']['gpgkey'] = 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2022'
+default['yum']['mysql-connectors-community']['gpgkey'] = 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2023'
 default['yum']['mysql-connectors-community']['description'] = 'MySQL Connectors Community'
 default['yum']['mysql-connectors-community']['gpgcheck'] = true
 default['yum']['mysql-connectors-community']['enabled'] = true
