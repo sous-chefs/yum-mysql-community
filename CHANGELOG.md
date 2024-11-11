@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+- Addressing RHEL > 8 issue
+
 ## 5.5.0 - *2025-01-06*
 
 - Amazon Linux 2023 should use el9 repos
