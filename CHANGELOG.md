@@ -5,6 +5,13 @@ This file is used to list changes made in each version of the yum-mysql-communit
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.5.2](https://github.com/sous-chefs/yum-mysql-community/compare/5.5.1...v5.5.2) (2025-10-16)
+
+
+### Bug Fixes
+
+* **ci:** Update workflows to use release pipeline ([#68](https://github.com/sous-chefs/yum-mysql-community/issues/68)) ([96d1e7c](https://github.com/sous-chefs/yum-mysql-community/commit/96d1e7c285c05f144ed8ba802740ef93f35d76b4))
+
 ## 5.5.0 - *2025-01-06*
 
 * Amazon Linux 2023 should use el9 repos
