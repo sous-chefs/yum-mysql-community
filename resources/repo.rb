@@ -82,7 +82,11 @@ action :create do
 
   yum_repository 'mysql-tools-community' do
     description 'MySQL Tools Community'
-    baseurl "https://repo.mysql.com/yum/mysql-tools-community/#{os}/#{os_ver}/$basearch/"
+    if  new_resource.version.to_f < 8.4
+      baseurl "https://repo.mysql.com/yum/mysql-tools-community/#{os}/#{os_ver}/$basearch/"
+    else
+      baseurl "https://repo.mysql.com/yum/mysql-tools-#{new_resource.version}-community/#{os}/#{os_ver}/$basearch/"
+    end
     gpgcheck new_resource.gpgcheck
     enabled new_resource.mysql_tools_community
     gpgkey new_resource.gpgkey
