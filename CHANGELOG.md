@@ -5,6 +5,16 @@ This file is used to list changes made in each version of the yum-mysql-communit
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.5.3](https://github.com/sous-chefs/yum-mysql-community/compare/v5.5.2...v5.5.3) (2025-12-18)
+
+
+### Bug Fixes
+
+* **ci:** Update workflows to use release pipeline ([#68](https://github.com/sous-chefs/yum-mysql-community/issues/68)) ([96d1e7c](https://github.com/sous-chefs/yum-mysql-community/commit/96d1e7c285c05f144ed8ba802740ef93f35d76b4))
+* error of gpgkey reference in older version. ([046732a](https://github.com/sous-chefs/yum-mysql-community/commit/046732adc5ad5ad408f83aeeeb33e69ab29ab078))
+* error of gpgkey reference in older versions. ([39097c5](https://github.com/sous-chefs/yum-mysql-community/commit/39097c588de6ed4f5356b91d307d4c5a0649d47f))
+* Fix release workflow and remove EOL platforms from testing ([#73](https://github.com/sous-chefs/yum-mysql-community/issues/73)) ([8cf40d3](https://github.com/sous-chefs/yum-mysql-community/commit/8cf40d3d97aa0fd5fddd665e1937d3f4ed4a991b))
+
 ## [5.5.2](https://github.com/sous-chefs/yum-mysql-community/compare/5.5.1...v5.5.2) (2025-10-16)
 
 
