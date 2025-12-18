@@ -24,10 +24,7 @@ jobs:
       matrix:
         os:
           - "almalinux-8"
-          - "amazonlinux-2"
           - "amazonlinux-2023"
-          - "centos-7"
-          - "centos-stream-8"
           - "rockylinux-8"
         suite:
           - "resource"
@@ -41,13 +38,6 @@ jobs:
           - os: almalinux-8
             suite: mysql56
           - os: almalinux-8
-            suite: mysql57
-          - os: centos-stream-8
-            suite: mysql55
-          - os: centos-stream-8
-            suite: mysql56
-          - os: centos-stream-8
-            suite: mysql57
           - os: rockylinux-8
             suite: mysql55
           - os: rockylinux-8
