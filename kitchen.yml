@@ -78,3 +78,13 @@ suites:
       - rockylinux-8
       - rockylinux-9
       - rockylinux-10
+
+  - name: mysql80
+    run_list:
+      - recipe[yum-mysql-community::mysql80]
+      - recipe[test::server]
+
+  - name: mysql84
+    run_list:
+      - recipe[yum-mysql-community::mysql84]
+      - recipe[test::server]

@@ -38,6 +38,8 @@ jobs:
           - "mysql55"
           - "mysql56"
           - "mysql57"
+          - "mysql80"
+          - "mysql84"
         exclude:
           - os: almalinux-8
             suite: mysql55
