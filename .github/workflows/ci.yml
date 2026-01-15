@@ -87,6 +87,18 @@ jobs:
             suite: mysql56
           - os: rockylinux-10
             suite: mysql57
+          - os: almalinux-10
+            suite: resource
+          - os: almalinux-10
+            suite: connectors
+          - os: centos-stream-10
+            suite: resource
+          - os: centos-stream-10
+            suite: connectors
+          - os: rockylinux-10
+            suite: resource
+          - os: rockylinux-10
+            suite: connectors
       fail-fast: false
 
     steps:

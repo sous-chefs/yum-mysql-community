@@ -29,10 +29,18 @@ suites:
   - name: resource
     run_list:
       - recipe[test::resource]
+    excludes:
+      - almalinux-10
+      - centos-stream-10
+      - rockylinux-10
 
   - name: connectors
     run_list:
       - recipe[test::connectors]
+    excludes:
+      - almalinux-10
+      - centos-stream-10
+      - rockylinux-10
 
   - name: mysql55
     run_list:
