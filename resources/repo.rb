@@ -145,9 +145,15 @@ action_class do
     case node['platform_family']
     when 'fedora', 'rhel'
       if platform?('redhat', 'oracle')
-        node['platform_version'].to_i
+        # MySQL repos only support up to EL 9, use 9 for EL 10+
+        [node['platform_version'].to_i, 9].min
       else
-        '$releasever'
+        # For other RHEL-family distros, cap $releasever at 9 for EL 10+
+        if node['platform_version'].to_i >= 10
+          '9'
+        else
+          '$releasever'
+        end
       end
     when 'amazon'
       case node['platform_version'].to_i
