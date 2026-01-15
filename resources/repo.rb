@@ -61,7 +61,7 @@ action :create do
 
   dnf_module 'mysql' do
     action :disable
-    only_if { node['platform_version'].to_i >= 8 }
+    only_if { node['platform_version'].to_i >= 8 && node['platform_version'].to_i < 10 }
   end
 
   yum_repository 'mysql-community' do
