@@ -61,7 +61,7 @@ action :create do
 
   dnf_module 'mysql' do
     action :disable
-    only_if { node['platform_version'].to_i >= 8 && node['platform_version'].to_i < 10 }
+    only_if { platform_family?('rhel') && node['platform_version'].to_i.between?(8, 9) }
   end
 
   yum_repository 'mysql-community' do
@@ -147,13 +147,11 @@ action_class do
       if platform?('redhat', 'oracle')
         # MySQL repos only support up to EL 9, use 9 for EL 10+
         [node['platform_version'].to_i, 9].min
+      elsif node['platform_version'].to_i >= 10
+        # For other RHEL-family distros, cap at 9 for EL 10+
+        '9'
       else
-        # For other RHEL-family distros, cap $releasever at 9 for EL 10+
-        if node['platform_version'].to_i >= 10
-          '9'
-        else
-          '$releasever'
-        end
+        '$releasever'
       end
     when 'amazon'
       case node['platform_version'].to_i
