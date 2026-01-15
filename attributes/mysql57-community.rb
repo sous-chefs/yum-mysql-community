@@ -17,7 +17,9 @@ when 'amazon'
       'https://repo.mysql.com/yum/mysql-5.7-community/el/6/$basearch/'
     when 2
       'https://repo.mysql.com/yum/mysql-5.7-community/el/7/$basearch/'
+    when 2023
+      'https://repo.mysql.com/yum/mysql-5.7-community/el/7/$basearch/'
     else
-      'https://repo.mysql.com/yum/mysql-5.7-community/el/6/$basearch/'
+      'https://repo.mysql.com/yum/mysql-5.7-community/el/7/$basearch/'
     end
 end
