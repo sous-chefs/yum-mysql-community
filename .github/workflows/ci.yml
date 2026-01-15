@@ -87,6 +87,12 @@ jobs:
             suite: mysql56
           - os: rockylinux-10
             suite: mysql57
+          - os: amazonlinux-2023
+            suite: mysql55
+          - os: amazonlinux-2023
+            suite: mysql56
+          - os: amazonlinux-2023
+            suite: mysql57
       fail-fast: false
 
     steps:

@@ -154,18 +154,8 @@ action_class do
         '$releasever'
       end
     when 'amazon'
-      case node['platform_version'].to_i
-      when /201./
-        '6'
-      when 2
-        '7'
-      when 3
-        '8'
-      when 2023
-        '9'
-      else
-        '7'
-      end
+      # Amazon Linux 2023 maps to EL 9
+      '9'
     else
       raise 'Unable to determine OS platform_family.'
     end
