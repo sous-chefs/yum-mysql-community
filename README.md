@@ -37,7 +37,7 @@ The following attributes are set by default
 ```ruby
 default['yum']['mysql84-community']['repositoryid'] = 'mysql84-community'
 default['yum']['mysql84-community']['description'] = 'MySQL 8.4 LTS Community Server'
-default['yum']['mysql84-community']['baseurl'] = 'https://repo.mysql.com/yum/mysql-8.4-lts-community/el/$releasever/$basearch/'
+default['yum']['mysql84-community']['baseurl'] = 'https://repo.mysql.com/yum/mysql-8.4-community/el/$releasever/$basearch/'
 default['yum']['mysql84-community']['gpgkey'] = 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2023'
 default['yum']['mysql84-community']['failovermethod'] = 'priority'
 default['yum']['mysql84-community']['gpgcheck'] = true

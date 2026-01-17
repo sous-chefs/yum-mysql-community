@@ -16,6 +16,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Disable the mysql dnf module on EL8/EL9 to allow MySQL Community packages
+dnf_module 'mysql' do
+  action :disable
+  only_if { platform_family?('rhel') && node['platform_version'].to_i.between?(8, 9) }
+end
+
 yum_repository 'mysql84-community' do
   description node['yum']['mysql84-community']['description'] unless node['yum']['mysql84-community']['description'].nil?
   baseurl node['yum']['mysql84-community']['baseurl'] unless node['yum']['mysql84-community']['baseurl'].nil?
