@@ -15,11 +15,15 @@ verifier:
 
 platforms:
   - name: almalinux-8
-  - name: amazonlinux-2
-  - name: centos-7
-  - name: centos-stream-8
+  - name: almalinux-9
+  - name: almalinux-10
+  - name: amazonlinux-2023
+  - name: centos-stream-9
+  - name: centos-stream-10
   - name: fedora-latest
   - name: rockylinux-8
+  - name: rockylinux-9
+  - name: rockylinux-10
 
 suites:
   - name: resource
@@ -36,8 +40,14 @@ suites:
       - recipe[test::server]
     excludes:
       - almalinux-8
-      - centos-stream-8
+      - almalinux-9
+      - almalinux-10
+      - amazonlinux-2023
+      - centos-stream-9
+      - centos-stream-10
       - rockylinux-8
+      - rockylinux-9
+      - rockylinux-10
 
   - name: mysql56
     run_list:
@@ -45,8 +55,14 @@ suites:
       - recipe[test::server]
     excludes:
       - almalinux-8
-      - centos-stream-8
+      - almalinux-9
+      - almalinux-10
+      - amazonlinux-2023
+      - centos-stream-9
+      - centos-stream-10
       - rockylinux-8
+      - rockylinux-9
+      - rockylinux-10
 
   - name: mysql57
     run_list:
@@ -54,5 +70,21 @@ suites:
       - recipe[test::server]
     excludes:
       - almalinux-8
-      - centos-stream-8
+      - almalinux-9
+      - almalinux-10
+      - amazonlinux-2023
+      - centos-stream-9
+      - centos-stream-10
       - rockylinux-8
+      - rockylinux-9
+      - rockylinux-10
+
+  - name: mysql80
+    run_list:
+      - recipe[yum-mysql-community::mysql80]
+      - recipe[test::server]
+
+  - name: mysql84
+    run_list:
+      - recipe[yum-mysql-community::mysql84]
+      - recipe[test::server]

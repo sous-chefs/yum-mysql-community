@@ -24,26 +24,19 @@ jobs:
       matrix:
         os:
           - "almalinux-8"
+          - "almalinux-9"
+          - "almalinux-10"
           - "amazonlinux-2023"
+          - "centos-stream-9"
+          - "centos-stream-10"
           - "rockylinux-8"
+          - "rockylinux-9"
+          - "rockylinux-10"
         suite:
           - "resource"
           - "connectors"
-          - "mysql55"
-          - "mysql56"
-          - "mysql57"
-        exclude:
-          - os: almalinux-8
-            suite: mysql55
-          - os: almalinux-8
-            suite: mysql56
-          - os: almalinux-8
-          - os: rockylinux-8
-            suite: mysql55
-          - os: rockylinux-8
-            suite: mysql56
-          - os: rockylinux-8
-            suite: mysql57
+          - "mysql80"
+          - "mysql84"
       fail-fast: false
 
     steps:

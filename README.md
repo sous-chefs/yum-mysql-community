@@ -6,7 +6,7 @@
 [![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-The yum-mysql-community cookbook takes over management of the default repository ids shipped with mysql*-community-release. It allows attribute manipulation of `mysql-connectors-community`, `mysql56-community`, and `mysql57-community-dmr`.
+The yum-mysql-community cookbook takes over management of the default repository ids shipped with mysql*-community-release. It allows attribute manipulation of `mysql-connectors-community`, `mysql80-community`, `mysql84-community`, and legacy versions.
 
 ## Maintainers
 
@@ -16,7 +16,8 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 ### Platforms
 
-- RHEL/CentOS and derivatives
+- RHEL 8+, AlmaLinux 8+, Rocky Linux 8+, CentOS Stream 9+
+- Amazon Linux 2023
 - Fedora
 
 ### Chef
@@ -31,61 +32,52 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 The following attributes are set by default
 
+### MySQL 8.4 LTS (Recommended)
+
+```ruby
+default['yum']['mysql84-community']['repositoryid'] = 'mysql84-community'
+default['yum']['mysql84-community']['description'] = 'MySQL 8.4 LTS Community Server'
+default['yum']['mysql84-community']['baseurl'] = 'https://repo.mysql.com/yum/mysql-8.4-community/el/$releasever/$basearch/'
+default['yum']['mysql84-community']['gpgkey'] = 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2023'
+default['yum']['mysql84-community']['failovermethod'] = 'priority'
+default['yum']['mysql84-community']['gpgcheck'] = true
+default['yum']['mysql84-community']['enabled'] = true
+```
+
+### MySQL 8.0
+
+```ruby
+default['yum']['mysql80-community']['repositoryid'] = 'mysql80-community'
+default['yum']['mysql80-community']['description'] = 'MySQL 8.0 Community Server'
+default['yum']['mysql80-community']['baseurl'] = 'https://repo.mysql.com/yum/mysql-8.0-community/el/$releasever/$basearch/'
+default['yum']['mysql80-community']['gpgkey'] = 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2023'
+default['yum']['mysql80-community']['failovermethod'] = 'priority'
+default['yum']['mysql80-community']['gpgcheck'] = true
+default['yum']['mysql80-community']['enabled'] = true
+```
+
+### MySQL Connectors
+
 ```ruby
 default['yum']['mysql-connectors-community']['repositoryid'] = 'mysql-connectors-community'
 default['yum']['mysql-connectors-community']['description'] = 'MySQL Connectors Community'
-default['yum']['mysql-connectors-community']['baseurl'] = 'http://repo.mysql.com/yum/mysql-connectors-community/el/$releasever/$basearch/'
-default['yum']['mysql-connectors-community']['gpgkey'] = 'https://raw.githubusercontent.com/rs-services/equinix-public/master/cookbooks/db_mysql/files/centos/mysql_pubkey.asc'
-default['yum']['mysql-connectors-community']['failovermethod'] = 'priority'
+default['yum']['mysql-connectors-community']['baseurl'] = 'https://repo.mysql.com/yum/mysql-connectors-community/el/$releasever/$basearch/'
+default['yum']['mysql-connectors-community']['gpgkey'] = 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2023'
 default['yum']['mysql-connectors-community']['gpgcheck'] = true
 default['yum']['mysql-connectors-community']['enabled'] = true
 ```
 
-```ruby
-default['yum']['mysql56-community']['repositoryid'] = 'mysql56-community'
-default['yum']['mysql56-community']['description'] = 'MySQL 5.6 Community Server'
-default['yum']['mysql56-community']['baseurl'] = 'http://repo.mysql.com/yum/mysql56-community/el/$releasever/$basearch/'
-default['yum']['mysql56-community']['gpgkey'] = 'https://raw.githubusercontent.com/rs-services/equinix-public/master/cookbooks/db_mysql/files/centos/mysql_pubkey.asc'
-default['yum']['mysql56-community']['failovermethod'] = 'priority'
-default['yum']['mysql56-community']['gpgcheck'] = true
-default['yum']['mysql56-community']['enabled'] = true
-```
-
-```ruby
-default['yum']['mysql57-community-dmr']['repositoryid'] = 'mysql57-community-dmr'
-default['yum']['mysql57-community-dmr']['description'] = 'MySQL 5.7 Community Server Development Milestone Release'
-default['yum']['mysql57-community-dmr']['baseurl'] = 'http://repo.mysql.com/yum/mysql56-community/el/$releasever/$basearch/'
-default['yum']['mysql57-community-dmr']['gpgkey'] = 'https://raw.githubusercontent.com/rs-services/equinix-public/master/cookbooks/db_mysql/files/centos/mysql_pubkey.asc'
-default['yum']['mysql57-community-dmr']['failovermethod'] = 'priority'
-default['yum']['mysql57-community-dmr']['gpgcheck'] = true
-default['yum']['mysql57-community-dmr']['enabled'] = true
-```
-
 ## Recipes
 
-- mysql55 - Sets up the mysql55-community repository on supported platforms
+- **mysql84** - Sets up the mysql84-community repository (MySQL 8.4 LTS - recommended)
+- **mysql80** - Sets up the mysql80-community repository (MySQL 8.0)
+- **connectors** - Sets up the mysql-connectors-community repository
 
-```ruby
-  yum_repository 'mysql55-community' do
-    mirrorlist 'https://repo.mysql.com/yum/mysql-5.5-community/el/$releasever/$basearch/'
-    description ''
-    enabled true
-    gpgcheck true
-  end
-```
+### Legacy Recipes (EOL MySQL versions, limited platform support)
 
-- mysql56 - Sets up the mysql56-community repository on supported platforms
-
-```ruby
-  yum_repository 'mysql56-community' do
-    mirrorlist 'https://repo.mysql.com/yum/mysql-5.6-community/el/$releasever/$basearch/'
-    description ''
-    enabled true
-    gpgcheck true
-  end
-```
-
-- connectors - Sets up the mysql-connectors-community repository on supported platforms
+- **mysql57** - Sets up the mysql57-community repository (EOL, EL 7 and Fedora only)
+- **mysql56** - Sets up the mysql56-community repository (EOL, EL 7 and Fedora only)
+- **mysql55** - Sets up the mysql55-community repository (EOL, EL 7 and Fedora only)
 
 ## Resources
 
@@ -103,41 +95,35 @@ default['yum']['mysql57-community-dmr']['enabled'] = true
   end
 ```
 
-## Usage Example
+## Usage Examples
 
-To disable the mysql-community-dmr repository through a Role or Environment definition
+### Using the resource (recommended)
 
 ```ruby
-default_attributes(
-  :yum => {
-    :mysql57-community-dmr => {
-      :enabled => {
-        false
-       }
-     }
-   }
- )
+yum_mysql_community_repo 'default' do
+  version '8.4'
+end
+
+package 'mysql-community-server'
 ```
 
-Uncommonly used repositoryids are not managed by default. This is speeds up integration testing pipelines by avoiding yum-cache builds that nobody cares about. To enable the mysql-community-dmr repository with a wrapper cookbook, place the following in a recipe:
+### Using recipes
 
 ```ruby
-node.default['yum']['mysql57-community-dmr']['enabled'] = true
-node.default['yum']['mysql57-community-dmr']['managed'] = true
-include_recipe 'mysql57-community-dmr'
+include_recipe 'yum-mysql-community::mysql84'
+
+package 'mysql-community-server'
 ```
 
-## More Examples
-
-Point the mysql56-community repositories at an internally hosted server.
+### Point repositories at an internally hosted server
 
 ```ruby
-node.default['yum']['mysql56-community']['enabled'] = true
-node.default['yum']['mysql56-community']['mirrorlist'] = nil
-node.default['yum']['mysql56-community']['baseurl'] = 'https://internal.example.com/mysql/mysql56-community/'
-node.default['yum']['mysql56-community']['sslverify'] = false
+node.default['yum']['mysql84-community']['enabled'] = true
+node.default['yum']['mysql84-community']['mirrorlist'] = nil
+node.default['yum']['mysql84-community']['baseurl'] = 'https://internal.example.com/mysql/mysql84-community/'
+node.default['yum']['mysql84-community']['sslverify'] = false
 
-include_recipe 'mysql56-community'
+include_recipe 'yum-mysql-community::mysql84'
 ```
 
 ## Contributors

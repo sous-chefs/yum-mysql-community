@@ -61,7 +61,7 @@ action :create do
 
   dnf_module 'mysql' do
     action :disable
-    only_if { node['platform_version'].to_i >= 8 }
+    only_if { platform_family?('rhel') && node['platform_version'].to_i.between?(8, 9) }
   end
 
   yum_repository 'mysql-community' do
@@ -145,23 +145,17 @@ action_class do
     case node['platform_family']
     when 'fedora', 'rhel'
       if platform?('redhat', 'oracle')
-        node['platform_version'].to_i
+        # MySQL repos only support up to EL 9, use 9 for EL 10+
+        [node['platform_version'].to_i, 9].min
+      elsif node['platform_version'].to_i >= 10
+        # For other RHEL-family distros, cap at 9 for EL 10+
+        '9'
       else
         '$releasever'
       end
     when 'amazon'
-      case node['platform_version'].to_i
-      when /201./
-        '6'
-      when 2
-        '7'
-      when 3
-        '8'
-      when 2023
-        '9'
-      else
-        '7'
-      end
+      # Amazon Linux 2023 maps to EL 9
+      '9'
     else
       raise 'Unable to determine OS platform_family.'
     end
