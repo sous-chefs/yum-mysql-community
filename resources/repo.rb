@@ -33,7 +33,7 @@ property :gpgcheck, [true, false],
          description: 'Enable or disable GPG checks'
 
 property :gpgkey, [String, Array],
-         default: 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2023',
+         default: 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2025',
          description: 'GPG key(s)'
 
 property :mysql_community_server, [true, false],
