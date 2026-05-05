@@ -5,6 +5,17 @@ This file is used to list changes made in each version of the yum-mysql-communit
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0](https://github.com/sous-chefs/yum-mysql-community/compare/v5.6.0...v6.0.0) (2026-05-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate yum-mysql-community to custom resources ([#80](https://github.com/sous-chefs/yum-mysql-community/issues/80))
+
+### Features
+
+* migrate yum-mysql-community to custom resources ([#80](https://github.com/sous-chefs/yum-mysql-community/issues/80)) ([9794f87](https://github.com/sous-chefs/yum-mysql-community/commit/9794f87713977dba1121e56477200d1c3c8bbdb5))
+
 ## [5.6.0](https://github.com/sous-chefs/yum-mysql-community/compare/v5.5.3...v5.6.0) (2026-01-18)
 
 
