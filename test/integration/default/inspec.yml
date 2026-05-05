@@ -1,0 +1,7 @@
+---
+name: default
+title: Default MySQL Community Repository
+maintainer: Sous Chefs
+license: Apache-2.0
+summary: Verifies the default MySQL 8.4 Community Yum repositories
+version: 1.0.0
