@@ -12,32 +12,30 @@ Configures Oracle MySQL Community Yum repositories.
 
 ## Properties
 
-| Property | Type | Default | Description |
-|----------|------|---------|-------------|
-| `version` | String | `'8.4'` | MySQL series: `8.0`, `8.4`, or `innovation`. |
-| `gpgcheck` | true, false | `true` | Enables GPG checks. |
-| `gpgkey` | String, Array | `'https://repo.mysql.com/RPM-GPG-KEY-mysql-2025'` | GPG key URL or URLs. |
-| `mysql_community_server` | true, false | `true` | Enables the server repository. |
-| `mysql_connectors_community` | true, false | `true` | Enables the connectors repository. |
-| `mysql_tools_community` | true, false | `true` | Enables the tools repository. |
-| `mysql_tools_preview` | true, false | `false` | Enables the tools preview repository. |
-| `mysql_cluster_community` | true, false | `false` | Enables the cluster repository. |
-| `disable_distro_mysql_module` | true, false | `true` | Disables the distro `mysql` DNF module on EL 8+. |
-| `mysql_community_server_repositoryid` | String | `'mysql-community'` | Server repository ID. |
-| `mysql_connectors_community_repositoryid` | String | `'mysql-connectors-community'` | Connectors repository ID. |
-| `mysql_tools_community_repositoryid` | String | `'mysql-tools-community'` | Tools repository ID. |
-| `mysql_tools_preview_repositoryid` | String | `'mysql-tools-preview'` | Tools preview repository ID. |
-| `mysql_cluster_community_repositoryid` | String | `'mysql-cluster-community'` | Cluster repository ID. |
-| `mysql_community_server_baseurl` | String, nil | computed | Server repository base URL override. |
-| `mysql_connectors_community_baseurl` | String, nil | computed | Connectors repository base URL override. |
-| `mysql_tools_community_baseurl` | String, nil | computed | Tools repository base URL override. |
-| `mysql_tools_preview_baseurl` | String, nil | computed | Tools preview repository base URL override. |
-| `mysql_cluster_community_baseurl` | String, nil | computed | Cluster repository base URL override. |
-| `mysql_community_server_mirrorlist` | String, nil | `nil` | Server repository mirrorlist override. |
-| `mysql_connectors_community_mirrorlist` | String, nil | `nil` | Connectors repository mirrorlist override. |
-| `mysql_tools_community_mirrorlist` | String, nil | `nil` | Tools repository mirrorlist override. |
-| `mysql_tools_preview_mirrorlist` | String, nil | `nil` | Tools preview repository mirrorlist override. |
-| `mysql_cluster_community_mirrorlist` | String, nil | `nil` | Cluster repository mirrorlist override. |
+- `version` - String, default: `'8.4'`. MySQL series: `8.0`, `8.4`, or `innovation`.
+- `gpgcheck` - true, false, default: `true`. Enables GPG checks.
+- `gpgkey` - String, Array, default: `'https://repo.mysql.com/RPM-GPG-KEY-mysql-2025'`. GPG key URL or URLs.
+- `mysql_community_server` - true, false, default: `true`. Enables the server repository.
+- `mysql_connectors_community` - true, false, default: `true`. Enables the connectors repository.
+- `mysql_tools_community` - true, false, default: `true`. Enables the tools repository.
+- `mysql_tools_preview` - true, false, default: `false`. Enables the tools preview repository.
+- `mysql_cluster_community` - true, false, default: `false`. Enables the cluster repository.
+- `disable_distro_mysql_module` - true, false, default: `true`. Disables the distro `mysql` DNF module on EL 8+.
+- `mysql_community_server_repositoryid` - String, default: `'mysql-community'`. Server repository ID.
+- `mysql_connectors_community_repositoryid` - String, default: `'mysql-connectors-community'`. Connectors repository ID.
+- `mysql_tools_community_repositoryid` - String, default: `'mysql-tools-community'`. Tools repository ID.
+- `mysql_tools_preview_repositoryid` - String, default: `'mysql-tools-preview'`. Tools preview repository ID.
+- `mysql_cluster_community_repositoryid` - String, default: `'mysql-cluster-community'`. Cluster repository ID.
+- `mysql_community_server_baseurl` - String, nil, default: computed. Server repository base URL override.
+- `mysql_connectors_community_baseurl` - String, nil, default: computed. Connectors repository base URL override.
+- `mysql_tools_community_baseurl` - String, nil, default: computed. Tools repository base URL override.
+- `mysql_tools_preview_baseurl` - String, nil, default: computed. Tools preview repository base URL override.
+- `mysql_cluster_community_baseurl` - String, nil, default: computed. Cluster repository base URL override.
+- `mysql_community_server_mirrorlist` - String, nil, default: `nil`. Server repository mirrorlist override.
+- `mysql_connectors_community_mirrorlist` - String, nil, default: `nil`. Connectors repository mirrorlist override.
+- `mysql_tools_community_mirrorlist` - String, nil, default: `nil`. Tools repository mirrorlist override.
+- `mysql_tools_preview_mirrorlist` - String, nil, default: `nil`. Tools preview repository mirrorlist override.
+- `mysql_cluster_community_mirrorlist` - String, nil, default: `nil`. Cluster repository mirrorlist override.
 
 ## Examples
 
