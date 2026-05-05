@@ -97,7 +97,7 @@ action :create do
 
   dnf_module 'mysql' do
     action :disable
-    only_if { new_resource.disable_distro_mysql_module && platform_family?('rhel') && platform_major_version >= 8 }
+    only_if { new_resource.disable_distro_mysql_module && distro_mysql_module_available? }
   end
 
   yum_repository new_resource.mysql_community_server_repositoryid do
@@ -184,7 +184,7 @@ action_class do
 
     dnf_module 'mysql' do
       action :reset
-      only_if { platform_family?('rhel') && platform_major_version >= 8 }
+      only_if { distro_mysql_module_available? }
     end
   end
 
@@ -259,5 +259,14 @@ action_class do
 
   def platform_major_version
     node['platform_version'].to_i
+  end
+
+  def distro_mysql_module_available?
+    return false unless platform_family?('rhel') && platform_major_version >= 8
+
+    result = shell_out('dnf -q module list mysql')
+    return false unless result.exitstatus.zero?
+
+    result.stdout.lines.any? { |line| line.start_with?('mysql ') }
   end
 end

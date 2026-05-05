@@ -43,7 +43,7 @@ jobs:
           - almalinux-10
           - centos-stream-9
           - centos-stream-10
-          - fedora-latest
+          - fedora-42
           - oraclelinux-8
           - oraclelinux-9
           - rockylinux-8
@@ -56,6 +56,8 @@ jobs:
             os: centos-stream-10
           - suite: mysql80
             os: rockylinux-10
+          - suite: mysql80
+            os: fedora-42
 
     steps:
       - name: Check out code

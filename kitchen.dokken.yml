@@ -37,9 +37,9 @@ platforms:
       image: dokken/centos-stream-10
       pid_one_command: /usr/lib/systemd/systemd
 
-  - name: fedora-latest
+  - name: fedora-42
     driver:
-      image: dokken/fedora-latest
+      image: dokken/fedora-42
       pid_one_command: /usr/lib/systemd/systemd
 
   - name: oraclelinux-8

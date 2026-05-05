@@ -12,15 +12,15 @@ The cookbook only declares current, non-EOL Yum-family platforms that map to the
 
 * AlmaLinux 8, 9, and 10
 * CentOS Stream 9 and 10
-* Fedora latest
+* Fedora 42
 * Oracle Linux 8 and 9
 * Red Hat Enterprise Linux 8, 9, and 10
 * Rocky Linux 8, 9, and 10
 
 MySQL release-series support in this cookbook:
 
-* MySQL 8.4 LTS: supported on EL8, EL9, EL10, and Fedora latest.
-* MySQL 8.0: supported on EL8, EL9, and Fedora latest. EL10 is not listed for MySQL 8.0 in Oracle's current platform table.
+* MySQL 8.4 LTS: supported on EL8, EL9, EL10, and Fedora 42.
+* MySQL 8.0: supported on EL8 and EL9. EL10 and Fedora 42 are not listed for MySQL 8.0 in Oracle's current platform table.
 * MySQL Innovation: supported by the MySQL Yum repository. The repository path is `mysql-innovation-community`.
 * MySQL 5.5, 5.6, and 5.7: not supported by this cookbook. The upstream repository directories are stale and Oracle's current Yum guide explicitly excludes MySQL 5.7.
 

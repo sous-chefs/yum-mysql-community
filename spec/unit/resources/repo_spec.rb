@@ -6,6 +6,14 @@ describe 'yum_mysql_community_repo' do
   step_into :yum_mysql_community_repo
   platform 'oracle', '9'
 
+  let(:dnf_mysql_module_list) { double(exitstatus: 0, stdout: "mysql 8.0 common [d]\n") }
+
+  before do
+    stubs_for_provider('yum_mysql_community_repo[mysql community repo]') do |provider|
+      allow(provider).to receive_shell_out('dnf -q module list mysql').and_return(dnf_mysql_module_list)
+    end
+  end
+
   context 'with default properties' do
     recipe do
       yum_mysql_community_repo 'mysql community repo'
@@ -125,5 +133,18 @@ describe 'yum_mysql_community_repo' do
     it { is_expected.to remove_yum_repository('mysql-tools-community') }
     it { is_expected.to remove_yum_repository('mysql-tools-preview') }
     it { is_expected.to remove_yum_repository('mysql-cluster-community') }
+  end
+
+  context 'when the distro mysql module is absent' do
+    platform 'almalinux', '10'
+
+    let(:dnf_mysql_module_list) { double(exitstatus: 0, stdout: '') }
+
+    recipe do
+      yum_mysql_community_repo 'mysql community repo'
+    end
+
+    it { is_expected.not_to disable_dnf_module('mysql') }
+    it { is_expected.to create_yum_repository('mysql-community') }
   end
 end

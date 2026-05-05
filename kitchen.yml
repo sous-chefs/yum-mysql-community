@@ -27,7 +27,7 @@ platforms:
   - name: almalinux-10
   - name: centos-stream-9
   - name: centos-stream-10
-  - name: fedora-latest
+  - name: fedora-42
   - name: oraclelinux-8
   - name: oraclelinux-9
   - name: rockylinux-8
@@ -69,6 +69,7 @@ suites:
     excludes:
       - almalinux-10
       - centos-stream-10
+      - fedora-42
       - rockylinux-10
 
   - name: connectors
