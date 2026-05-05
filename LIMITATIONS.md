@@ -56,6 +56,6 @@ This cookbook only manages Yum repository files. It does not build MySQL from so
 * [MySQL Supported Platforms](https://www.mysql.com/support/supportedplatforms/)
 * [MySQL Yum repository index](https://repo.mysql.com/yum/)
 * [CentOS Stream lifecycle](https://endoflife.date/centos-stream)
-* [CentOS lifecycle](https://endoflife.software/operating-systems/linux/centos)
+* [CentOS lifecycle](https://endoflife.date/centos)
 * [Amazon Linux lifecycle](https://endoflife.date/amazon-linux)
 * [Scientific Linux EOL notice](https://scientificlinux.org/category/uncategorized/scientific-linux-end-of-life/)
