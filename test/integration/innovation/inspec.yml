@@ -1,0 +1,7 @@
+---
+name: innovation
+title: MySQL Innovation Community Repository
+maintainer: Sous Chefs
+license: Apache-2.0
+summary: Verifies MySQL Innovation Community Yum repositories
+version: 1.0.0

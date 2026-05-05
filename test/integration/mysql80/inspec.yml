@@ -1,0 +1,7 @@
+---
+name: mysql80
+title: MySQL 8.0 Community Repository
+maintainer: Sous Chefs
+license: Apache-2.0
+summary: Verifies MySQL 8.0 Community Yum repositories
+version: 1.0.0

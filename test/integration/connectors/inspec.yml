@@ -1,0 +1,7 @@
+---
+name: connectors
+title: MySQL Connectors Community Repository
+maintainer: Sous Chefs
+license: Apache-2.0
+summary: Verifies connector-only repository configuration
+version: 1.0.0

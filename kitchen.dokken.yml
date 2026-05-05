@@ -1,10 +1,15 @@
+---
 driver:
   name: dokken
   privileged: true
-  chef_version: <%= ENV['CHEF_VERSION'] || 'current' %>
+  chef_image: chef/chef
+  chef_version: current
 
-transport: { name: dokken }
-provisioner: { name: dokken }
+transport:
+  name: dokken
+
+provisioner:
+  name: dokken
 
 platforms:
   - name: almalinux-8
@@ -22,11 +27,6 @@ platforms:
       image: dokken/almalinux-10
       pid_one_command: /usr/lib/systemd/systemd
 
-  - name: amazonlinux-2023
-    driver:
-      image: dokken/amazonlinux-2023
-      pid_one_command: /usr/lib/systemd/systemd
-
   - name: centos-stream-9
     driver:
       image: dokken/centos-stream-9
@@ -37,14 +37,9 @@ platforms:
       image: dokken/centos-stream-10
       pid_one_command: /usr/lib/systemd/systemd
 
-  - name: fedora-latest
+  - name: fedora-42
     driver:
-      image: dokken/fedora-latest
-      pid_one_command: /usr/lib/systemd/systemd
-
-  - name: opensuse-leap-15
-    driver:
-      image: dokken/opensuse-leap-15
+      image: dokken/fedora-42
       pid_one_command: /usr/lib/systemd/systemd
 
   - name: oraclelinux-8

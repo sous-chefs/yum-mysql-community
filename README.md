@@ -6,125 +6,77 @@
 [![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-The yum-mysql-community cookbook takes over management of the default repository ids shipped with mysql*-community-release. It allows attribute manipulation of `mysql-connectors-community`, `mysql80-community`, `mysql84-community`, and legacy versions.
+The yum-mysql-community cookbook configures Oracle MySQL Community Yum repositories with a custom resource API.
 
 ## Maintainers
 
-This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of Chef cookbook maintainers working together to maintain important cookbooks. If you’d like to know more please visit [sous-chefs.org](https://sous-chefs.org/) or come chat with us on the Chef Community Slack in [#sous-chefs](https://chefcommunity.slack.com/messages/C2V7B88SF).
+This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of Chef cookbook maintainers working together to maintain important cookbooks. If you'd like to know more please visit [sous-chefs.org](https://sous-chefs.org/) or come chat with us on the Chef Community Slack in [#sous-chefs](https://chefcommunity.slack.com/messages/C2V7B88SF).
 
 ## Requirements
 
 ### Platforms
 
-- RHEL 8+, AlmaLinux 8+, Rocky Linux 8+, CentOS Stream 9+
-- Amazon Linux 2023
-- Fedora
+* AlmaLinux 8+
+* CentOS Stream 9+
+* Fedora
+* Oracle Linux 8+
+* Red Hat Enterprise Linux 8+
+* Rocky Linux 8+
+
+See [LIMITATIONS.md](LIMITATIONS.md) for vendor support details and unsupported legacy MySQL series.
 
 ### Chef
 
-- Chef 15.3+
+* Chef 15.3+
 
 ### Cookbooks
 
-- `yum` 7.2.0+ (for `dnf_module` resource)
-
-## Attributes
-
-The following attributes are set by default
-
-### MySQL 8.4 LTS (Recommended)
-
-```ruby
-default['yum']['mysql84-community']['repositoryid'] = 'mysql84-community'
-default['yum']['mysql84-community']['description'] = 'MySQL 8.4 LTS Community Server'
-default['yum']['mysql84-community']['baseurl'] = 'https://repo.mysql.com/yum/mysql-8.4-community/el/$releasever/$basearch/'
-default['yum']['mysql84-community']['gpgkey'] = 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2023'
-default['yum']['mysql84-community']['failovermethod'] = 'priority'
-default['yum']['mysql84-community']['gpgcheck'] = true
-default['yum']['mysql84-community']['enabled'] = true
-```
-
-### MySQL 8.0
-
-```ruby
-default['yum']['mysql80-community']['repositoryid'] = 'mysql80-community'
-default['yum']['mysql80-community']['description'] = 'MySQL 8.0 Community Server'
-default['yum']['mysql80-community']['baseurl'] = 'https://repo.mysql.com/yum/mysql-8.0-community/el/$releasever/$basearch/'
-default['yum']['mysql80-community']['gpgkey'] = 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2023'
-default['yum']['mysql80-community']['failovermethod'] = 'priority'
-default['yum']['mysql80-community']['gpgcheck'] = true
-default['yum']['mysql80-community']['enabled'] = true
-```
-
-### MySQL Connectors
-
-```ruby
-default['yum']['mysql-connectors-community']['repositoryid'] = 'mysql-connectors-community'
-default['yum']['mysql-connectors-community']['description'] = 'MySQL Connectors Community'
-default['yum']['mysql-connectors-community']['baseurl'] = 'https://repo.mysql.com/yum/mysql-connectors-community/el/$releasever/$basearch/'
-default['yum']['mysql-connectors-community']['gpgkey'] = 'https://repo.mysql.com/RPM-GPG-KEY-mysql-2023'
-default['yum']['mysql-connectors-community']['gpgcheck'] = true
-default['yum']['mysql-connectors-community']['enabled'] = true
-```
-
-## Recipes
-
-- **mysql84** - Sets up the mysql84-community repository (MySQL 8.4 LTS - recommended)
-- **mysql80** - Sets up the mysql80-community repository (MySQL 8.0)
-- **connectors** - Sets up the mysql-connectors-community repository
-
-### Legacy Recipes (EOL MySQL versions, limited platform support)
-
-- **mysql57** - Sets up the mysql57-community repository (EOL, EL 7 and Fedora only)
-- **mysql56** - Sets up the mysql56-community repository (EOL, EL 7 and Fedora only)
-- **mysql55** - Sets up the mysql55-community repository (EOL, EL 7 and Fedora only)
+* `yum` 7.2.0+ for the `dnf_module` resource
 
 ## Resources
 
-- yum_mysql_community_repo - Creates /etc/yum.repos.d/mysql-community repo file with enabled repos on supported platforms
+* [yum_mysql_community_repo](documentation/yum_mysql_community_repo.md)
+
+## Usage
+
+Configure the default MySQL 8.4 LTS repositories:
 
 ```ruby
-  yum_mysql_community_repo 'default' do
-    version '8.0'
-    gpgcheck true
-    mysql_community_server true
-    mysql_connectors_community true
-    mysql_tools_community true
-    mysql_tools_preview false
-    mysql_cluster_community false
-  end
+yum_mysql_community_repo 'mysql community repo'
 ```
 
-## Usage Examples
-
-### Using the resource (recommended)
+Configure MySQL 8.0 repositories:
 
 ```ruby
-yum_mysql_community_repo 'default' do
-  version '8.4'
+yum_mysql_community_repo 'mysql community 8.0 repo' do
+  version '8.0'
 end
-
-package 'mysql-community-server'
 ```
 
-### Using recipes
+Configure only the connectors repository:
 
 ```ruby
-include_recipe 'yum-mysql-community::mysql84'
-
-package 'mysql-community-server'
+yum_mysql_community_repo 'mysql connectors repo' do
+  mysql_community_server false
+  mysql_connectors_community true
+  mysql_tools_community false
+  mysql_tools_preview false
+  mysql_cluster_community false
+end
 ```
 
-### Point repositories at an internally hosted server
+Point the server repository at an internally hosted mirror:
 
 ```ruby
-node.default['yum']['mysql84-community']['enabled'] = true
-node.default['yum']['mysql84-community']['mirrorlist'] = nil
-node.default['yum']['mysql84-community']['baseurl'] = 'https://internal.example.com/mysql/mysql84-community/'
-node.default['yum']['mysql84-community']['sslverify'] = false
-
-include_recipe 'yum-mysql-community::mysql84'
+yum_mysql_community_repo 'internal mysql repo' do
+  mysql_community_server_baseurl 'https://internal.example.com/mysql/mysql-8.4-community/'
+  gpgkey 'https://internal.example.com/mysql/RPM-GPG-KEY-mysql'
+end
 ```
+
+## Migration
+
+This cookbook no longer provides recipes or node attributes. See [migration.md](migration.md) for the breaking changes and replacement resource examples.
 
 ## Contributors
 
