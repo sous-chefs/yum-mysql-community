@@ -11,7 +11,7 @@ control 'yum-mysql-community-default-01' do
   describe file(mysql_repo_file('mysql-community')) do
     it { should exist }
     its('content') { should match /^\[mysql-community\]/ }
-    its('content') { should match %r{mysql-8\.4-community/el/} }
+    its('content') { should match %r{mysql-8\.4-community/#{mysql_platform_segment}/} }
   end
 
   describe file(mysql_repo_file('mysql-connectors-community')) do
@@ -22,6 +22,6 @@ control 'yum-mysql-community-default-01' do
   describe file(mysql_repo_file('mysql-tools-community')) do
     it { should exist }
     its('content') { should match /^\[mysql-tools-community\]/ }
-    its('content') { should match %r{mysql-tools-8\.4-community/el/} }
+    its('content') { should match %r{mysql-tools-8\.4-community/#{mysql_platform_segment}/} }
   end
 end
