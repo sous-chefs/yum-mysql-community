@@ -64,6 +64,8 @@ suites:
     verifier: *default_verifier
 
   - name: mysql80
+    provisioner:
+      named_run_list: mysql80
     run_list: *mysql80_run_list
     verifier: *mysql80_verifier
     excludes:
@@ -73,9 +75,13 @@ suites:
       - rockylinux-10
 
   - name: connectors
+    provisioner:
+      named_run_list: connectors
     run_list: *connectors_run_list
     verifier: *connectors_verifier
 
   - name: innovation
+    provisioner:
+      named_run_list: innovation
     run_list: *innovation_run_list
     verifier: *innovation_verifier

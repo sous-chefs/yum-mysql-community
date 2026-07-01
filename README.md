@@ -23,7 +23,7 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 * Red Hat Enterprise Linux 8+
 * Rocky Linux 8+
 
-See [LIMITATIONS.md](LIMITATIONS.md) for vendor support details and unsupported legacy MySQL series.
+See [AGENTS.md](AGENTS.md) for vendor support details and unsupported legacy MySQL series.
 
 ### Chef
 
