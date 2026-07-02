@@ -9,3 +9,4 @@ provisioner:
   name: chef_infra
   chef_omnibus_install: false
   sudo: true
+  policyfile: Policyfile.rb

@@ -16,6 +16,7 @@ provisioner:
   enforce_idempotency: <%= ENV['ENFORCE_IDEMPOTENCY'] || true %>
   multiple_converge: <%= ENV['MULTIPLE_CONVERGE'] || 2 %>
   deprecations_as_errors: true
+  policyfile: Policyfile.rb
 
 verifier:
   name: inspec
@@ -34,16 +35,6 @@ platforms:
   - name: rockylinux-9
   - name: rockylinux-10
 
-x-run_lists:
-  default: &default_run_list
-    - recipe[test::default]
-  mysql80: &mysql80_run_list
-    - recipe[test::mysql80]
-  connectors: &connectors_run_list
-    - recipe[test::connectors]
-  innovation: &innovation_run_list
-    - recipe[test::innovation]
-
 x-verifiers:
   default: &default_verifier
     inspec_tests:
@@ -60,13 +51,13 @@ x-verifiers:
 
 suites:
   - name: default
-    run_list: *default_run_list
+    provisioner:
+      named_run_list: default
     verifier: *default_verifier
 
   - name: mysql80
     provisioner:
       named_run_list: mysql80
-    run_list: *mysql80_run_list
     verifier: *mysql80_verifier
     excludes:
       - almalinux-10
@@ -77,11 +68,9 @@ suites:
   - name: connectors
     provisioner:
       named_run_list: connectors
-    run_list: *connectors_run_list
     verifier: *connectors_verifier
 
   - name: innovation
     provisioner:
       named_run_list: innovation
-    run_list: *innovation_run_list
     verifier: *innovation_verifier
